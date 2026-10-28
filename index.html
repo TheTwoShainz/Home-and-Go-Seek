@@ -8,7 +8,7 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>Ready, Set, Zillow!</title>
+  <title>Home and Go Seek</title>
 
   <style>
     * {
@@ -16,8 +16,8 @@
     }
 
     :root {
-      --blue: #006aff;
-      --blue-dark: #0054cc;
+      --blue: #3366ff;
+      --blue-dark: #1f4eea;
       --green: #16883e;
       --green-dark: #106b30;
       --red: #b42318;
@@ -91,7 +91,7 @@
     input:focus {
       outline: none;
       border-color: var(--blue);
-      box-shadow: 0 0 0 3px rgba(0, 106, 255, 0.14);
+      box-shadow: 0 0 0 3px rgba(51, 102, 255, 0.14);
     }
 
     .row {
@@ -159,10 +159,8 @@
       border-radius: 11px;
     }
 
-    .instructions ol {
-      margin: 10px 0 0;
-      padding-left: 22px;
-      line-height: 1.55;
+    .instructions .section-title {
+      margin-top: 0;
     }
 
     .small {
@@ -185,9 +183,17 @@
       font-weight: bold;
     }
 
-    #message.success {
-      color: var(--green);
-      font-weight: bold;
+    .examples {
+      margin-top: 8px;
+      padding: 10px 12px;
+
+      color: var(--muted);
+      background: #fafafa;
+
+      border-radius: 7px;
+
+      font-size: 12px;
+      line-height: 1.5;
     }
 
     @media (max-width: 540px) {
@@ -211,18 +217,27 @@
 </head>
 
 <body>
+
   <main class="card">
 
-    <h1>🏠 Ready, Set, Zillow!</h1>
+    <h1>🏠 Home and Go Seek</h1>
 
     <p class="subtitle">
-      Set your criteria, open the Zillow results, and use the
-      Random House bookmark to choose one of the loaded listings.
+      Set as many or as few limits as you want.
+      Leave any field blank for no restriction.
     </p>
 
-    <h2 class="section-title">Location</h2>
 
-    <label for="city">City</label>
+    <!-- LOCATION -->
+
+    <h2 class="section-title">
+      Location
+    </h2>
+
+
+    <label for="city">
+      City
+    </label>
 
     <input
       id="city"
@@ -231,7 +246,10 @@
       autocomplete="address-level2"
     >
 
-    <label for="state">State</label>
+
+    <label for="state">
+      State
+    </label>
 
     <input
       id="state"
@@ -241,405 +259,854 @@
       autocomplete="address-level1"
     >
 
-    <h2 class="section-title">Price</h2>
+
+    <!-- PRICE -->
+
+    <h2 class="section-title">
+      Price
+    </h2>
 
     <div class="row">
+
       <div>
-        <label for="minPrice">Minimum price</label>
+
+        <label for="minPrice">
+          Minimum price
+        </label>
 
         <input
           id="minPrice"
           type="number"
           min="0"
           step="1000"
-          placeholder="250000"
+          placeholder="No minimum"
         >
+
       </div>
 
+
       <div>
-        <label for="maxPrice">Maximum price</label>
+
+        <label for="maxPrice">
+          Maximum price
+        </label>
 
         <input
           id="maxPrice"
           type="number"
           min="0"
           step="1000"
-          placeholder="750000"
+          placeholder="No maximum"
         >
+
       </div>
+
     </div>
 
-    <h2 class="section-title">Square footage</h2>
+
+    <!-- SQUARE FOOTAGE -->
+
+    <h2 class="section-title">
+      Square footage
+    </h2>
 
     <div class="row">
+
       <div>
-        <label for="minSqft">Minimum square feet</label>
+
+        <label for="minSqft">
+          Minimum square feet
+        </label>
 
         <input
           id="minSqft"
           type="number"
           min="0"
           step="100"
-          placeholder="1500"
+          placeholder="No minimum"
         >
+
       </div>
 
+
       <div>
-        <label for="maxSqft">Maximum square feet</label>
+
+        <label for="maxSqft">
+          Maximum square feet
+        </label>
 
         <input
           id="maxSqft"
           type="number"
           min="0"
           step="100"
-          placeholder="3500"
+          placeholder="No maximum"
         >
+
       </div>
+
     </div>
+
+
+    <div class="examples">
+
+      Examples:<br>
+
+      $1M+ = enter 1000000 minimum and leave maximum blank.<br>
+
+      Under $500k = leave minimum blank and enter 500000 maximum.<br>
+
+      5,000+ sq ft = enter 5000 minimum and leave maximum blank.
+
+    </div>
+
 
     <button
       id="openSearchButton"
       class="search-button"
       type="button"
     >
-      1. Open matching Zillow listings
+      🔎 Open Matching Zillow Listings
     </button>
 
-    <div id="message" role="status" aria-live="polite"></div>
+
+    <div
+      id="message"
+      role="status"
+      aria-live="polite"
+    ></div>
+
+
+    <!-- RANDOMIZER -->
 
     <section class="instructions">
+
       <h2 class="section-title">
-        Install the randomizer once
+        🎲 Random House
       </h2>
 
       <p class="small">
-        Drag the green button below to your browser's bookmarks bar.
-        If dragging doesn't work, use the copy button and create a new
-        bookmark manually.
+
+        Save the green button below to your browser's
+        bookmarks bar.
+
+        Then open a Zillow search, let the listings load,
+        and click the bookmark to randomly choose one.
+
       </p>
+
 
       <a
         id="bookmarklet"
         class="bookmarklet random-button"
         href="#"
-        title="Drag this button to your bookmarks bar"
+        title="Drag this to your bookmarks bar"
       >
         🎲 Random Zillow House
       </a>
+
 
       <button
         id="copyBookmarkletButton"
         class="secondary-button"
         type="button"
       >
-        Copy randomizer code
+        Copy Randomizer Code
       </button>
 
-      <ol>
-        <li>Install the bookmark above once.</li>
-        <li>Use this page to open your filtered Zillow results.</li>
-        <li>Scroll through the results to load more houses.</li>
-        <li>Click the <strong>Random Zillow House</strong> bookmark.</li>
-        <li>Click it again whenever you want another house.</li>
-      </ol>
+
+      <p class="small">
+
+        Tip: scroll farther down the Zillow results before
+        clicking Random Zillow House to give the randomizer
+        more loaded listings to choose from.
+
+      </p>
+
     </section>
 
   </main>
 
+
   <script>
+
     "use strict";
 
-    const storageKey = "readySetZillowSettings";
 
-    const bookmarkletCode =
-`javascript:(()=>{const raw=[...document.querySelectorAll('a[href*="/homedetails/"]')].map(a=>a.href.split("?")[0]);const listings=[...new Set(raw)];if(!listings.length){alert("No Zillow listing links were found. Open a Zillow search-results page, wait for the listings to load, and try again.");return;}const previous=sessionStorage.getItem("readySetZillowPrevious");let choices=listings.filter(url=>url!==previous);if(!choices.length){choices=listings;}const buffer=new Uint32Array(1);crypto.getRandomValues(buffer);const selected=choices[buffer[0]%choices.length];sessionStorage.setItem("readySetZillowPrevious",selected);window.location.href=selected;})();`;
+    /* -----------------------------------
+       SETTINGS
+    ----------------------------------- */
+
+    const storageKey =
+      "homeAndGoSeekSettings";
+
 
     const elements = {
-      city: document.getElementById("city"),
-      state: document.getElementById("state"),
-      minPrice: document.getElementById("minPrice"),
-      maxPrice: document.getElementById("maxPrice"),
-      minSqft: document.getElementById("minSqft"),
-      maxSqft: document.getElementById("maxSqft"),
-      message: document.getElementById("message"),
+
+      city:
+        document.getElementById("city"),
+
+      state:
+        document.getElementById("state"),
+
+      minPrice:
+        document.getElementById("minPrice"),
+
+      maxPrice:
+        document.getElementById("maxPrice"),
+
+      minSqft:
+        document.getElementById("minSqft"),
+
+      maxSqft:
+        document.getElementById("maxSqft"),
+
+      message:
+        document.getElementById("message"),
+
       openSearchButton:
-        document.getElementById("openSearchButton"),
+        document.getElementById(
+          "openSearchButton"
+        ),
+
       bookmarklet:
-        document.getElementById("bookmarklet"),
+        document.getElementById(
+          "bookmarklet"
+        ),
+
       copyBookmarkletButton:
-        document.getElementById("copyBookmarkletButton")
+        document.getElementById(
+          "copyBookmarkletButton"
+        )
+
     };
 
-    elements.bookmarklet.href = bookmarkletCode;
 
-    function showMessage(text, type = "") {
-      elements.message.textContent = text;
-      elements.message.className = type;
+    /* -----------------------------------
+       RANDOM ZILLOW BOOKMARKLET
+    ----------------------------------- */
+
+    const bookmarkletCode =
+`javascript:(()=>{const links=[...document.querySelectorAll('a[href]')].map(a=>a.href).filter(h=>h&&h.includes('zillow.com')&&(h.includes('/homedetails/')||/\\/\\d+_zpid/.test(h))).map(h=>h.split('?')[0]);const listings=[...new Set(links)];if(!listings.length){alert('No Zillow listings were found on this page. Make sure you are on a Zillow search-results page, wait for the listings to load, scroll down, and try again.');return;}const last=sessionStorage.getItem('homeAndGoSeekLast');let choices=listings.filter(h=>h!==last);if(!choices.length)choices=listings;const randomValues=new Uint32Array(1);crypto.getRandomValues(randomValues);const selected=choices[randomValues[0]%choices.length];sessionStorage.setItem('homeAndGoSeekLast',selected);location.href=selected;})();`;
+
+
+    elements.bookmarklet.href =
+      bookmarkletCode;
+
+
+
+    /* -----------------------------------
+       MESSAGE
+    ----------------------------------- */
+
+    function showMessage(
+      text,
+      type = ""
+    ) {
+
+      elements.message.textContent =
+        text;
+
+      elements.message.className =
+        type;
+
     }
 
-    function readOptionalNumber(element) {
-      const rawValue = element.value.trim();
+
+
+    /* -----------------------------------
+       READ OPTIONAL NUMBER
+
+       Blank = null
+
+       This allows:
+       min only
+       max only
+       both
+       neither
+    ----------------------------------- */
+
+    function readOptionalNumber(
+      element
+    ) {
+
+      const rawValue =
+        element.value.trim();
+
 
       if (rawValue === "") {
+
         return null;
+
       }
 
-      const numberValue = Number(rawValue);
+
+      const numberValue =
+        Number(rawValue);
+
 
       if (
         !Number.isFinite(numberValue) ||
         numberValue < 0
       ) {
+
         return null;
+
       }
 
-      return Math.round(numberValue);
+
+      return Math.round(
+        numberValue
+      );
+
     }
+
+
+
+    /* -----------------------------------
+       GET FORM
+    ----------------------------------- */
 
     function getFormValues() {
+
       return {
-        city: elements.city.value.trim(),
-        state: elements.state.value.trim().toUpperCase(),
-        minPrice: readOptionalNumber(elements.minPrice),
-        maxPrice: readOptionalNumber(elements.maxPrice),
-        minSqft: readOptionalNumber(elements.minSqft),
-        maxSqft: readOptionalNumber(elements.maxSqft)
+
+        city:
+          elements.city
+            .value
+            .trim(),
+
+        state:
+          elements.state
+            .value
+            .trim()
+            .toUpperCase(),
+
+        minPrice:
+          readOptionalNumber(
+            elements.minPrice
+          ),
+
+        maxPrice:
+          readOptionalNumber(
+            elements.maxPrice
+          ),
+
+        minSqft:
+          readOptionalNumber(
+            elements.minSqft
+          ),
+
+        maxSqft:
+          readOptionalNumber(
+            elements.maxSqft
+          )
+
       };
+
     }
 
-    function validateSettings(settings) {
+
+
+    /* -----------------------------------
+       VALIDATION
+    ----------------------------------- */
+
+    function validateSettings(
+      settings
+    ) {
+
       if (
         settings.state &&
-        !/^[A-Z]{2}$/.test(settings.state)
+        !/^[A-Z]{2}$/.test(
+          settings.state
+        )
       ) {
-        return "Enter the state as a two-letter abbreviation, such as KS.";
+
+        return (
+          "Enter the state as a two-letter abbreviation, such as KS."
+        );
+
       }
+
+
+      /*
+       Only compare min/max when BOTH exist.
+       A blank side means no restriction.
+      */
 
       if (
         settings.minPrice !== null &&
         settings.maxPrice !== null &&
-        settings.minPrice > settings.maxPrice
+        settings.minPrice >
+          settings.maxPrice
       ) {
-        return "Minimum price cannot exceed maximum price.";
+
+        return (
+          "Minimum price cannot be greater than maximum price. Leave maximum blank if you want no upper limit."
+        );
+
       }
+
 
       if (
         settings.minSqft !== null &&
         settings.maxSqft !== null &&
-        settings.minSqft > settings.maxSqft
+        settings.minSqft >
+          settings.maxSqft
       ) {
-        return "Minimum square feet cannot exceed maximum square feet.";
+
+        return (
+          "Minimum square feet cannot be greater than maximum square feet. Leave maximum blank if you want no upper limit."
+        );
+
       }
+
 
       return "";
+
     }
 
-    function buildRangeFilter(minimum, maximum) {
+
+
+    /* -----------------------------------
+       RANGE FILTER
+    ----------------------------------- */
+
+    function buildRangeFilter(
+      minimum,
+      maximum
+    ) {
+
       const range = {};
 
+
       if (minimum !== null) {
-        range.min = minimum;
+
+        range.min =
+          minimum;
+
       }
+
 
       if (maximum !== null) {
-        range.max = maximum;
+
+        range.max =
+          maximum;
+
       }
+
 
       return range;
+
     }
 
-    function buildZillowUrl(settings) {
-      const locationParts = [];
+
+
+    /* -----------------------------------
+       BUILD ZILLOW URL
+    ----------------------------------- */
+
+    function buildZillowUrl(
+      settings
+    ) {
+
+      const locationParts =
+        [];
+
 
       if (settings.city) {
-        locationParts.push(settings.city);
+
+        locationParts.push(
+          settings.city
+        );
+
       }
+
 
       if (settings.state) {
-        locationParts.push(settings.state);
+
+        locationParts.push(
+          settings.state
+        );
+
       }
 
-      const searchTerm = locationParts.join(", ");
+
+      const searchTerm =
+        locationParts.join(", ");
+
+
+
+      /*
+       Default Zillow sale filters
+      */
 
       const filterState = {
+
         isForSaleByAgent: {
           value: true
         },
+
         isForSaleByOwner: {
           value: true
         },
+
         isNewConstruction: {
           value: true
         },
+
         isComingSoon: {
           value: true
         },
+
         isAuction: {
           value: false
         }
+
       };
+
+
+
+      /* PRICE */
 
       if (
         settings.minPrice !== null ||
         settings.maxPrice !== null
       ) {
-        filterState.price = buildRangeFilter(
-          settings.minPrice,
-          settings.maxPrice
-        );
+
+        filterState.price =
+          buildRangeFilter(
+
+            settings.minPrice,
+
+            settings.maxPrice
+
+          );
+
       }
+
+
+
+      /* SQUARE FOOTAGE */
 
       if (
         settings.minSqft !== null ||
         settings.maxSqft !== null
       ) {
-        filterState.sqft = buildRangeFilter(
-          settings.minSqft,
-          settings.maxSqft
-        );
+
+        filterState.sqft =
+          buildRangeFilter(
+
+            settings.minSqft,
+
+            settings.maxSqft
+
+          );
+
       }
+
+
+
+      /* SEARCH STATE */
 
       const searchQueryState = {
+
         pagination: {},
+
         isMapVisible: true,
+
         isListVisible: true,
-        filterState: filterState
+
+        filterState:
+          filterState
+
       };
 
+
       if (searchTerm) {
-        searchQueryState.usersSearchTerm = searchTerm;
+
+        searchQueryState
+          .usersSearchTerm =
+            searchTerm;
+
       }
+
+
+
+      /* BASE URL */
 
       let baseUrl =
+
         "https://www.zillow.com/homes/for_sale/";
 
+
+
       if (searchTerm) {
-        const locationSlug = searchTerm
-          .normalize("NFKD")
-          .replace(/[^\w\s-]/g, "")
-          .trim()
-          .replace(/\s+/g, "-")
-          .toLowerCase();
+
+        const locationSlug =
+          searchTerm
+
+            .normalize("NFKD")
+
+            .replace(
+              /[^\w\s-]/g,
+              ""
+            )
+
+            .trim()
+
+            .replace(
+              /\s+/g,
+              "-"
+            )
+
+            .toLowerCase();
+
 
         baseUrl =
+
           "https://www.zillow.com/homes/" +
+
           locationSlug +
+
           "_rb/";
+
       }
+
+
 
       return (
+
         baseUrl +
+
         "?searchQueryState=" +
+
         encodeURIComponent(
-          JSON.stringify(searchQueryState)
+
+          JSON.stringify(
+            searchQueryState
+          )
+
         )
+
       );
+
     }
 
-    function saveSettings(settings) {
+
+
+    /* -----------------------------------
+       SAVE SETTINGS
+    ----------------------------------- */
+
+    function saveSettings(
+      settings
+    ) {
+
       localStorage.setItem(
+
         storageKey,
-        JSON.stringify(settings)
+
+        JSON.stringify(
+          settings
+        )
+
       );
+
     }
+
+
+
+    /* -----------------------------------
+       RESTORE SETTINGS
+    ----------------------------------- */
 
     function restoreSettings() {
+
       const savedValue =
-        localStorage.getItem(storageKey);
+        localStorage.getItem(
+          storageKey
+        );
+
 
       if (!savedValue) {
+
         return;
+
       }
 
-      try {
-        const settings = JSON.parse(savedValue);
 
-        elements.city.value = settings.city || "";
-        elements.state.value = settings.state || "";
+      try {
+
+        const settings =
+          JSON.parse(
+            savedValue
+          );
+
+
+        elements.city.value =
+          settings.city || "";
+
+
+        elements.state.value =
+          settings.state || "";
+
 
         elements.minPrice.value =
           settings.minPrice ?? "";
 
+
         elements.maxPrice.value =
           settings.maxPrice ?? "";
+
 
         elements.minSqft.value =
           settings.minSqft ?? "";
 
+
         elements.maxSqft.value =
           settings.maxSqft ?? "";
-      } catch {
-        localStorage.removeItem(storageKey);
+
       }
+
+      catch {
+
+        localStorage.removeItem(
+          storageKey
+        );
+
+      }
+
     }
 
+
+
+    /* -----------------------------------
+       OPEN ZILLOW
+
+       Same-tab navigation prevents
+       popup-blocking problems.
+    ----------------------------------- */
+
     function openZillowSearch() {
+
       showMessage("");
 
-      const settings = getFormValues();
+
+      const settings =
+        getFormValues();
+
+
       const validationError =
-        validateSettings(settings);
+        validateSettings(
+          settings
+        );
+
 
       if (validationError) {
-        showMessage(validationError, "error");
-        return;
-      }
 
-      saveSettings(settings);
-
-      const zillowUrl =
-        buildZillowUrl(settings);
-
-      const newWindow = window.open(
-        zillowUrl,
-        "_blank",
-        "noopener"
-      );
-
-      if (!newWindow) {
         showMessage(
-          "Your browser blocked the new tab. Allow pop-ups for this page and try again.",
+          validationError,
           "error"
         );
 
         return;
+
       }
 
-      showMessage(
-        "Zillow opened. Let the results load, then click your Random Zillow House bookmark.",
-        "success"
+
+      saveSettings(
+        settings
       );
+
+
+      const zillowUrl =
+        buildZillowUrl(
+          settings
+        );
+
+
+      /*
+       Navigate directly instead of
+       window.open().
+      */
+
+      window.location.href =
+        zillowUrl;
+
     }
+
+
+
+    /* -----------------------------------
+       COPY BOOKMARKLET
+    ----------------------------------- */
 
     async function copyRandomizer() {
+
       try {
-        await navigator.clipboard.writeText(
-          bookmarkletCode
-        );
+
+        await navigator.clipboard
+          .writeText(
+            bookmarkletCode
+          );
+
 
         showMessage(
-          "Randomizer code copied. Create a bookmark and paste the code into its URL/address field.",
-          "success"
+          "Randomizer copied. Create a bookmark and paste the code into the bookmark's URL field."
         );
-      } catch {
-        window.prompt(
-          "Copy this code and paste it into a bookmark's URL/address field:",
-          bookmarkletCode
-        );
+
       }
+
+      catch {
+
+        window.prompt(
+
+          "Copy this code and paste it into the bookmark URL field:",
+
+          bookmarkletCode
+
+        );
+
+      }
+
     }
 
-    elements.openSearchButton.addEventListener(
-      "click",
-      openZillowSearch
-    );
 
-    elements.copyBookmarkletButton.addEventListener(
-      "click",
-      copyRandomizer
-    );
+
+    /* -----------------------------------
+       BUTTON EVENTS
+    ----------------------------------- */
+
+    elements.openSearchButton
+      .addEventListener(
+
+        "click",
+
+        openZillowSearch
+
+      );
+
+
+    elements.copyBookmarkletButton
+      .addEventListener(
+
+        "click",
+
+        copyRandomizer
+
+      );
+
+
+
+    /* -----------------------------------
+       START
+    ----------------------------------- */
 
     restoreSettings();
+
   </script>
+
 </body>
 </html>
