@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Home and Go Seek</title>
 
@@ -14,11 +18,15 @@
     :root {
       --blue: #3366ff;
       --blue-dark: #244fd1;
+
       --green: #16883e;
       --green-dark: #106b30;
+
       --red: #b42318;
+
       --text: #202124;
       --muted: #687078;
+
       --border: #d4d9df;
       --background: #f3f6f9;
       --card: #ffffff;
@@ -26,48 +34,63 @@
 
     body {
       margin: 0;
+
       min-height: 100vh;
+
       padding: 40px 18px;
 
       display: flex;
+
       justify-content: center;
+
       align-items: flex-start;
 
-      font-family: Arial, Helvetica, sans-serif;
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
       color: var(--text);
-      background: var(--background);
+
+      background:
+        var(--background);
     }
 
     .card {
       width: 100%;
+
       max-width: 620px;
 
       padding: 32px;
 
-      background: var(--card);
+      background:
+        var(--card);
 
       border-radius: 18px;
 
       box-shadow:
-        0 10px 35px rgba(0,0,0,0.12);
+        0 10px 35px
+        rgba(0, 0, 0, 0.12);
     }
 
     h1 {
       margin: 0;
 
-      font-size: 32px;
       text-align: center;
+
+      font-size: 32px;
     }
 
     h2 {
-      margin: 28px 0 6px;
+      margin:
+        28px 0 6px;
 
       font-size: 19px;
     }
 
     .subtitle {
-      margin: 10px 0 28px;
+      margin:
+        10px 0 28px;
 
       text-align: center;
 
@@ -79,7 +102,8 @@
     label {
       display: block;
 
-      margin: 17px 0 6px;
+      margin:
+        17px 0 6px;
 
       font-weight: bold;
     }
@@ -90,7 +114,8 @@
       padding: 12px;
 
       border:
-        1px solid var(--border);
+        1px solid
+        var(--border);
 
       border-radius: 8px;
 
@@ -102,11 +127,17 @@
     input:focus {
       outline: none;
 
-      border-color: var(--blue);
+      border-color:
+        var(--blue);
 
       box-shadow:
         0 0 0 3px
-        rgba(51,102,255,0.14);
+        rgba(
+          51,
+          102,
+          255,
+          0.14
+        );
     }
 
     .row {
@@ -127,7 +158,8 @@
 
       margin-top: 16px;
 
-      padding: 14px 16px;
+      padding:
+        14px 16px;
 
       border: 0;
 
@@ -149,34 +181,42 @@
 
       color: white;
 
-      background: var(--blue);
+      background:
+        var(--blue);
     }
 
     .search-button:hover {
-      background: var(--blue-dark);
+      background:
+        var(--blue-dark);
     }
 
     .bookmarklet {
       color: white;
 
-      background: var(--green);
+      background:
+        var(--green);
     }
 
     .bookmarklet:hover {
-      background: var(--green-dark);
+      background:
+        var(--green-dark);
     }
 
     .copy-button {
-      color: var(--blue);
+      color:
+        var(--blue);
 
-      background: #eaf3ff;
+      background:
+        #eaf3ff;
 
       border:
-        1px solid #b4d5ff;
+        1px solid
+        #b4d5ff;
     }
 
     .copy-button:hover {
-      background: #dbeaff;
+      background:
+        #dbeaff;
     }
 
     .box {
@@ -185,11 +225,13 @@
       padding: 16px;
 
       border:
-        1px solid var(--border);
+        1px solid
+        var(--border);
 
       border-radius: 11px;
 
-      background: #f8fafc;
+      background:
+        #f8fafc;
     }
 
     .box h2 {
@@ -197,11 +239,16 @@
     }
 
     .small {
-      color: var(--muted);
+      color:
+        var(--muted);
 
       font-size: 13px;
 
       line-height: 1.5;
+    }
+
+    .example {
+      margin-bottom: 8px;
     }
 
     #message {
@@ -211,24 +258,36 @@
 
       text-align: center;
 
-      color: var(--muted);
+      color:
+        var(--muted);
 
       font-size: 14px;
     }
 
     #message.error {
-      color: var(--red);
+      color:
+        var(--red);
 
       font-weight: bold;
     }
 
     #message.success {
-      color: var(--green);
+      color:
+        var(--green);
 
       font-weight: bold;
     }
 
-    @media (max-width: 540px) {
+    .house-rule {
+      color:
+        var(--green);
+
+      font-weight: bold;
+    }
+
+    @media (
+      max-width: 540px
+    ) {
 
       body {
         padding:
@@ -251,6 +310,7 @@
   </style>
 </head>
 
+
 <body>
 
   <main class="card">
@@ -259,17 +319,23 @@
       🏠 Home and Go Seek
     </h1>
 
+
     <p class="subtitle">
-      Pick your search area and limits.
-      Leave any limit blank if you do not want one.
+
+      Pick your location and limits.
+
+      Leave any limit blank
+      if you do not want one.
+
     </p>
 
 
     <!-- LOCATION -->
 
     <h2>
-      Location
+      📍 Location
     </h2>
+
 
     <div class="row">
 
@@ -279,10 +345,12 @@
           City
         </label>
 
+
         <input
           id="city"
           type="text"
           placeholder="Wichita"
+          autocomplete="address-level2"
         >
 
       </div>
@@ -294,11 +362,13 @@
           State
         </label>
 
+
         <input
           id="state"
           type="text"
           maxlength="2"
           placeholder="KS"
+          autocomplete="address-level1"
         >
 
       </div>
@@ -309,8 +379,9 @@
     <!-- PRICE -->
 
     <h2>
-      Price
+      💰 Price
     </h2>
+
 
     <div class="row">
 
@@ -319,6 +390,7 @@
         <label for="minPrice">
           Minimum price
         </label>
+
 
         <input
           id="minPrice"
@@ -337,6 +409,7 @@
           Maximum price
         </label>
 
+
         <input
           id="maxPrice"
           type="number"
@@ -353,8 +426,9 @@
     <!-- SQ FT -->
 
     <h2>
-      Square footage
+      📐 Square footage
     </h2>
+
 
     <div class="row">
 
@@ -363,6 +437,7 @@
         <label for="minSqft">
           Minimum square feet
         </label>
+
 
         <input
           id="minSqft"
@@ -381,6 +456,7 @@
           Maximum square feet
         </label>
 
+
         <input
           id="maxSqft"
           type="number"
@@ -394,39 +470,92 @@
     </div>
 
 
-    <div class="box small">
+    <!-- HOUSE TYPE -->
 
-      <strong>Examples</strong>
+    <div class="box">
 
-      <p>
-        $1M and up:
-        minimum = 1000000,
-        maximum = blank
+      <strong>
+        🏡 Property type
+      </strong>
+
+      <p class="house-rule">
+        Single-family houses only
       </p>
 
-      <p>
-        Under $500k:
-        minimum = blank,
-        maximum = 500000
-      </p>
+      <p class="small">
 
-      <p>
-        5,000+ sq ft:
-        minimum = 5000,
-        maximum = blank
+        The randomizer rejects
+        condos, townhouses,
+        apartments, land,
+        lots, manufactured homes,
+        mobile homes,
+        and multifamily properties.
+
       </p>
 
     </div>
 
 
-    <!-- SEARCH BUTTON -->
+    <!-- EXAMPLES -->
+
+    <div class="box small">
+
+      <strong>
+        Examples
+      </strong>
+
+
+      <p class="example">
+
+        $1M and up:<br>
+
+        Minimum =
+        1000000<br>
+
+        Maximum =
+        blank
+
+      </p>
+
+
+      <p class="example">
+
+        Under $500k:<br>
+
+        Minimum =
+        blank<br>
+
+        Maximum =
+        500000
+
+      </p>
+
+
+      <p class="example">
+
+        5,000+ sq ft:<br>
+
+        Minimum =
+        5000<br>
+
+        Maximum =
+        blank
+
+      </p>
+
+    </div>
+
+
+    <!-- SEARCH -->
 
     <button
       id="openSearchButton"
       class="search-button"
       type="button"
     >
+
       🔎 Open Zillow Location
+
     </button>
 
 
@@ -445,14 +574,17 @@
         🎲 Random House
       </h2>
 
+
       <p class="small">
 
-        Install this bookmark once.
+        Install the randomizer
+        bookmark once.
 
-        Once you are viewing Zillow results,
-        click the bookmark to randomly choose
-        one of the houses currently loaded
-        on the page.
+        On Zillow,
+        scroll through the results
+        to load some houses.
+
+        Then click the bookmark.
 
       </p>
 
@@ -461,8 +593,11 @@
         id="bookmarklet"
         class="bookmarklet"
         href="#"
+        title="Random Zillow House"
       >
+
         🎲 Random Zillow House
+
       </a>
 
 
@@ -471,16 +606,37 @@
         class="copy-button"
         type="button"
       >
+
         Copy Randomizer Code
+
       </button>
 
 
       <p class="small">
 
-        The safest installation method is
-        Copy Randomizer Code → create a new
-        browser bookmark → paste the copied
-        code into the bookmark's URL field.
+        Recommended installation:
+
+        click
+        <strong>
+          Copy Randomizer Code
+        </strong>,
+
+        create a browser bookmark,
+
+        then paste the copied code
+        into the bookmark's URL field.
+
+      </p>
+
+
+      <p class="small">
+
+        The bookmark URL must begin
+        with:
+
+        <strong>
+          javascript:
+        </strong>
 
       </p>
 
@@ -494,9 +650,21 @@
     "use strict";
 
 
+    /*
+    =====================================
+    CONFIGURATION
+    =====================================
+    */
+
     const STORAGE_KEY =
       "homeAndGoSeekSettings";
 
+
+    /*
+    =====================================
+    PAGE ELEMENTS
+    =====================================
+    */
 
     const cityInput =
       document.getElementById(
@@ -559,24 +727,195 @@
 
 
     /*
-      RANDOMIZER
+    =====================================
+    RANDOM HOUSE BOOKMARKLET
+    =====================================
 
-      This code runs ON ZILLOW through
-      the browser bookmark.
+    This code runs ON the Zillow page.
 
-      It finds loaded property links,
-      removes duplicates,
-      and randomly selects one.
+    It looks for Zillow property links.
+
+    It then checks the surrounding
+    property-card text.
+
+    A property must contain:
+
+        "House for sale"
+
+    and must NOT contain excluded
+    property types.
+
+    =====================================
     */
 
-    const bookmarkletCode =
-`javascript:(()=>{const links=[...document.querySelectorAll('a[href]')].map(a=>a.href).filter(h=>h&&(h.includes('/homedetails/')||/\\/\\d+_zpid\\/?/.test(h))).map(h=>h.split('?')[0]);const houses=[...new Set(links)];if(!houses.length){alert('No Zillow house links were found. Make sure you are on a Zillow results page, let the listings load, scroll down, then try again.');return;}const previous=sessionStorage.getItem('HAGS_LAST');let choices=houses.filter(h=>h!==previous);if(!choices.length)choices=houses;const random=new Uint32Array(1);crypto.getRandomValues(random);const selected=choices[random[0]%choices.length];sessionStorage.setItem('HAGS_LAST',selected);window.location.href=selected;})();`;
 
+    const bookmarkletCode =
+`javascript:(()=>{
+
+const blocked =
+/\\b(condo|condominium|townhouse|townhome|apartment|land|lot|manufactured|mobile home|multi-family|multifamily)\\b/i;
+
+
+const links =
+[...document.querySelectorAll('a[href]')];
+
+
+const houses = [];
+
+
+for (const link of links) {
+
+
+  const href =
+  link.href;
+
+
+  if (!href) {
+    continue;
+  }
+
+
+  const looksLikeProperty =
+  href.includes('/homedetails/') ||
+  /\\/\\d+_zpid\\/?/.test(href);
+
+
+  if (!looksLikeProperty) {
+    continue;
+  }
+
+
+  const card =
+  link.closest(
+    'article,li,[data-test*="property-card"],[class*="property-card"],[class*="StyledPropertyCard"]'
+  );
+
+
+  const text =
+  (
+    card
+      ? card.innerText
+      : link.innerText || ''
+  )
+  .replace(/\\s+/g,' ')
+  .trim();
+
+
+  const isHouse =
+  /\\bhouse for sale\\b/i
+  .test(text);
+
+
+  const excluded =
+  blocked.test(text);
+
+
+  if (
+    isHouse &&
+    !excluded
+  ) {
+
+    houses.push(
+      href.split('?')[0]
+    );
+
+  }
+
+}
+
+
+const unique =
+[...new Set(houses)];
+
+
+if (!unique.length) {
+
+  alert(
+    'No loaded single-family houses were found. Make sure Zillow is showing house cards, scroll down to load more listings, then try again.'
+  );
+
+  return;
+
+}
+
+
+/*
+Avoid immediately repeating
+the previous random house.
+*/
+
+const previous =
+sessionStorage.getItem(
+  'HAGS_LAST'
+);
+
+
+let choices =
+unique.filter(
+  url =>
+  url !== previous
+);
+
+
+if (!choices.length) {
+
+  choices =
+  unique;
+
+}
+
+
+/*
+Generate random selection.
+*/
+
+const randomValues =
+new Uint32Array(1);
+
+
+crypto.getRandomValues(
+  randomValues
+);
+
+
+const randomIndex =
+randomValues[0] %
+choices.length;
+
+
+const selected =
+choices[
+  randomIndex
+];
+
+
+sessionStorage.setItem(
+  'HAGS_LAST',
+  selected
+);
+
+
+window.location.href =
+selected;
+
+
+})();`;
+
+
+    /*
+    Give the green button the
+    bookmarklet code.
+    */
 
     bookmarklet.href =
       bookmarkletCode;
 
 
+    /*
+    =====================================
+    STATUS MESSAGE
+    =====================================
+    */
 
     function showMessage(
       text,
@@ -586,12 +925,29 @@
       message.textContent =
         text;
 
+
       message.className =
         type;
 
     }
 
 
+    /*
+    =====================================
+    OPTIONAL NUMBER
+    =====================================
+
+    Blank = null
+
+    Allows:
+
+    min only
+    max only
+    both
+    neither
+
+    =====================================
+    */
 
     function readNumber(
       input
@@ -601,7 +957,9 @@
         input.value.trim();
 
 
-      if (raw === "") {
+      if (
+        raw === ""
+      ) {
 
         return null;
 
@@ -629,6 +987,11 @@
     }
 
 
+    /*
+    =====================================
+    GET SETTINGS
+    =====================================
+    */
 
     function getSettings() {
 
@@ -670,10 +1033,20 @@
     }
 
 
+    /*
+    =====================================
+    VALIDATION
+    =====================================
+    */
 
     function validate(
       settings
     ) {
+
+
+      /*
+      City requires state.
+      */
 
       if (
         settings.city &&
@@ -686,6 +1059,10 @@
 
       }
 
+
+      /*
+      Validate state abbreviation.
+      */
 
       if (
         settings.state &&
@@ -701,11 +1078,16 @@
       }
 
 
+      /*
+      Price check only occurs if
+      BOTH values were entered.
+      */
+
       if (
         settings.minPrice !== null &&
         settings.maxPrice !== null &&
         settings.minPrice >
-          settings.maxPrice
+        settings.maxPrice
       ) {
 
         return (
@@ -715,11 +1097,16 @@
       }
 
 
+      /*
+      Sq ft check only occurs if
+      BOTH values were entered.
+      */
+
       if (
         settings.minSqft !== null &&
         settings.maxSqft !== null &&
         settings.minSqft >
-          settings.maxSqft
+        settings.maxSqft
       ) {
 
         return (
@@ -734,11 +1121,18 @@
     }
 
 
-
     /*
-      Wichita + KS
-          ↓
-      wichita-ks
+    =====================================
+    LOCATION SLUG
+    =====================================
+
+    Wichita + KS
+
+         becomes
+
+    wichita-ks
+
+    =====================================
     */
 
     function makeLocationSlug(
@@ -747,9 +1141,12 @@
     ) {
 
       const location =
-        [city, state]
-          .filter(Boolean)
-          .join(" ");
+        [
+          city,
+          state
+        ]
+        .filter(Boolean)
+        .join(" ");
 
 
       return location
@@ -773,20 +1170,29 @@
     }
 
 
-
     /*
-      BUILD SIMPLE ZILLOW LOCATION URL
+    =====================================
+    BUILD ZILLOW LOCATION
+    =====================================
 
-      IMPORTANT:
+    We intentionally do NOT create
+    Zillow's internal searchQueryState.
 
-      We are intentionally NOT trying
-      to manufacture Zillow's internal
-      searchQueryState anymore.
+    This avoids the stale-location
+    behavior we previously saw.
+
+    =====================================
     */
 
     function buildZillowLocation(
       settings
     ) {
+
+
+      /*
+      No city or state:
+      just open Zillow.
+      */
 
       if (
         !settings.city &&
@@ -811,14 +1217,23 @@
 
 
       return (
+
         "https://www.zillow.com/" +
+
         slug +
+
         "/"
+
       );
 
     }
 
 
+    /*
+    =====================================
+    SAVE SETTINGS
+    =====================================
+    */
 
     function saveSettings(
       settings
@@ -837,6 +1252,11 @@
     }
 
 
+    /*
+    =====================================
+    RESTORE SETTINGS
+    =====================================
+    */
 
     function restoreSettings() {
 
@@ -886,6 +1306,7 @@
 
       }
 
+
       catch {
 
         localStorage.removeItem(
@@ -897,6 +1318,11 @@
     }
 
 
+    /*
+    =====================================
+    OPEN ZILLOW
+    =====================================
+    */
 
     function openSearch() {
 
@@ -937,11 +1363,8 @@
 
 
       /*
-        Direct navigation.
-
-        No popup.
-        No new tab.
-        No searchQueryState.
+      Same-tab navigation prevents
+      popup-blocking problems.
       */
 
       window.location.href =
@@ -950,6 +1373,11 @@
     }
 
 
+    /*
+    =====================================
+    COPY RANDOMIZER
+    =====================================
+    */
 
     async function copyRandomizer() {
 
@@ -963,7 +1391,7 @@
 
         showMessage(
 
-          "Randomizer copied. Create a browser bookmark and paste it into the bookmark URL field.",
+          "Randomizer copied. Edit your Random Zillow House bookmark and replace its URL with the copied code.",
 
           "success"
 
@@ -971,11 +1399,12 @@
 
       }
 
+
       catch {
 
         window.prompt(
 
-          "Copy this and paste it into the bookmark URL field:",
+          "Copy this code and paste it into your Random Zillow House bookmark URL:",
 
           bookmarkletCode
 
@@ -986,20 +1415,37 @@
     }
 
 
+    /*
+    =====================================
+    EVENTS
+    =====================================
+    */
 
     openSearchButton
       .addEventListener(
+
         "click",
+
         openSearch
+
       );
 
 
     copyButton
       .addEventListener(
+
         "click",
+
         copyRandomizer
+
       );
 
+
+    /*
+    =====================================
+    START
+    =====================================
+    */
 
     restoreSettings();
 
