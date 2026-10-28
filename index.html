@@ -245,8 +245,6 @@
     </p>
 
 
-    <!-- LOCATION -->
-
     <h2>
       📍 Location
     </h2>
@@ -283,8 +281,6 @@
     </div>
 
 
-    <!-- PROPERTY TYPE -->
-
     <div class="box">
 
       <strong>
@@ -296,16 +292,14 @@
       </p>
 
       <p class="small">
-        The randomizer excludes condos, condominiums,
+        The randomizer rejects listings identified as condos,
         townhouses, townhomes, apartments, land, lots,
-        manufactured homes, mobile homes, duplexes,
-        triplexes, fourplexes, and multifamily properties.
+        manufactured/mobile homes, duplexes, triplexes,
+        fourplexes, and multifamily properties.
       </p>
 
     </div>
 
-
-    <!-- OPEN ZILLOW -->
 
     <button
       id="openSearchButton"
@@ -322,8 +316,6 @@
     ></div>
 
 
-    <!-- RANDOMIZER -->
-
     <section class="box">
 
       <h2>
@@ -331,9 +323,8 @@
       </h2>
 
       <p class="small">
-        Install the bookmark once. When you use the bookmark
-        on Zillow, it asks for your price and square-footage
-        limits.
+        Install the bookmark once. When you use it on Zillow,
+        it asks for optional price and square-footage limits.
       </p>
 
       <a
@@ -355,7 +346,7 @@
 
       <ol class="steps">
         <li>Use the blue button to open Zillow.</li>
-        <li>Scroll down to load multiple Zillow cards.</li>
+        <li>Scroll down to load multiple listings.</li>
         <li>Click the Random Zillow House bookmark.</li>
         <li>Enter price and square-footage limits.</li>
         <li>Leave any prompt blank for no limit.</li>
@@ -370,32 +361,20 @@
     "use strict";
 
 
-    /*
-    ======================================
-    PAGE SETUP
-    ======================================
-    */
-
     const STORAGE_KEY =
       "homeAndGoSeekLocation";
 
 
     const cityInput =
-      document.getElementById(
-        "city"
-      );
+      document.getElementById("city");
 
 
     const stateInput =
-      document.getElementById(
-        "state"
-      );
+      document.getElementById("state");
 
 
     const message =
-      document.getElementById(
-        "message"
-      );
+      document.getElementById("message");
 
 
     const openSearchButton =
@@ -418,20 +397,7 @@
 
     /*
     ======================================
-    RANDOMIZER BOOKMARKLET
-    ======================================
-
-    This runs directly on Zillow.
-
-    It:
-    - asks for optional limits;
-    - finds loaded Zillow cards;
-    - identifies single-family listings;
-    - rejects unwanted property types;
-    - reads price and square footage;
-    - filters cards;
-    - randomly selects one.
-
+    CORRECTED ZILLOW BOOKMARKLET
     ======================================
     */
 
@@ -441,10 +407,7 @@
 function askNumber(message){
 
   const input =
-  prompt(
-    message,
-    ''
-  );
+  prompt(message,'');
 
 
   if(input === null){
@@ -486,9 +449,7 @@ function askNumber(message){
       'Enter a positive number or leave the field blank.'
     );
 
-    return askNumber(
-      message
-    );
+    return askNumber(message);
 
   }
 
@@ -543,9 +504,7 @@ function parseMoney(text){
   }
 
 
-  return Math.round(
-    value
-  );
+  return Math.round(value);
 
 }
 
@@ -577,9 +536,7 @@ function parseSqft(text){
   }
 
 
-  return Math.round(
-    value
-  );
+  return Math.round(value);
 
 }
 
@@ -618,6 +575,221 @@ function passesRange(
 
 
   return true;
+
+}
+
+
+/*
+Collect text and accessible labels
+from an element and its descendants.
+*/
+
+
+function extractElementText(element){
+
+  if(!element){
+    return '';
+  }
+
+
+  const parts = [];
+
+
+  const directText =
+  element.innerText ||
+  element.textContent ||
+  '';
+
+
+  if(directText){
+    parts.push(
+      directText
+    );
+  }
+
+
+  const ownAria =
+  element.getAttribute &&
+  element.getAttribute(
+    'aria-label'
+  );
+
+
+  if(ownAria){
+    parts.push(
+      ownAria
+    );
+  }
+
+
+  const ownTitle =
+  element.getAttribute &&
+  element.getAttribute(
+    'title'
+  );
+
+
+  if(ownTitle){
+    parts.push(
+      ownTitle
+    );
+  }
+
+
+  const labeled =
+  element.querySelectorAll
+  ? element.querySelectorAll(
+      '[aria-label],[title],img[alt]'
+    )
+  : [];
+
+
+  for(
+    const child of labeled
+  ){
+
+    const aria =
+    child.getAttribute(
+      'aria-label'
+    );
+
+
+    const title =
+    child.getAttribute(
+      'title'
+    );
+
+
+    const alt =
+    child.getAttribute(
+      'alt'
+    );
+
+
+    if(aria){
+      parts.push(aria);
+    }
+
+
+    if(title){
+      parts.push(title);
+    }
+
+
+    if(alt){
+      parts.push(alt);
+    }
+
+  }
+
+
+  return parts
+    .join(' ')
+    .replace(
+      /\\s+/g,
+      ' '
+    )
+    .trim();
+
+}
+
+
+/*
+Walk upward from a property link.
+
+Choose the first reasonably sized
+ancestor containing price or sqft.
+
+This avoids Zillow's empty link
+wrapper problem.
+*/
+
+
+function findListingData(
+  link
+){
+
+  let element =
+  link;
+
+
+  let bestText =
+  extractElementText(
+    link
+  );
+
+
+  for(
+    let depth = 0;
+    depth < 9 && element;
+    depth++
+  ){
+
+    const text =
+    extractElementText(
+      element
+    );
+
+
+    const hasPrice =
+    /\\$\\s*[\\d,.]+/i.test(
+      text
+    );
+
+
+    const hasSqft =
+    /[\\d,.]+\\s*(?:sq\\.?\\s*ft\\.?|sqft|square feet)/i.test(
+      text
+    );
+
+
+    const hasBedBath =
+    /\\b\\d+(?:\\.\\d+)?\\s*(?:bd|bds|bed|beds|ba|bath|baths)\\b/i.test(
+      text
+    );
+
+
+    /*
+    Prefer the smallest ancestor
+    with recognizable listing data.
+    */
+
+
+    if(
+      hasPrice &&
+      (
+        hasSqft ||
+        hasBedBath
+      )
+    ){
+
+      bestText =
+      text;
+
+      break;
+
+    }
+
+
+    if(
+      text.length >
+      bestText.length &&
+      text.length < 2500
+    ){
+
+      bestText =
+      text;
+
+    }
+
+
+    element =
+    element.parentElement;
+
+  }
+
+
+  return bestText;
 
 }
 
@@ -697,15 +869,11 @@ const maximumSqft =
 maximumSqftResult.value;
 
 
-/*
-Validate ranges.
-*/
-
-
 if(
   minimumPrice !== null &&
   maximumPrice !== null &&
-  minimumPrice > maximumPrice
+  minimumPrice >
+  maximumPrice
 ){
 
   alert(
@@ -720,7 +888,8 @@ if(
 if(
   minimumSqft !== null &&
   maximumSqft !== null &&
-  minimumSqft > maximumSqft
+  minimumSqft >
+  maximumSqft
 ){
 
   alert(
@@ -734,13 +903,13 @@ if(
 
 /*
 ======================================
-PROPERTY-TYPE RULES
+PROPERTY TYPES
 ======================================
 */
 
 
-const allowedTypes =
-/\\b(house for sale|single[- ]family|single family residence|detached house|detached home)\\b/i;
+const positiveHouseLabels =
+/\\b(house for sale|single[- ]family|single family residence|detached house|detached home|residential for sale)\\b/i;
 
 
 const blockedTypes =
@@ -757,7 +926,7 @@ FIND PROPERTY LINKS
 const links =
 [
   ...document.querySelectorAll(
-    'a[href*="/homedetails/"], a[href*="_zpid"]'
+    'a[href*="/homedetails/"],a[href*="_zpid"]'
   )
 ];
 
@@ -779,42 +948,6 @@ for(
   }
 
 
-  /*
-  Use the closest likely property card.
-
-  Avoid generic LI elements because a
-  large LI can contain several listings.
-  */
-
-
-  const card =
-  link.closest(
-    '[data-test="property-card"],' +
-    '[data-testid="property-card"],' +
-    'article,' +
-    '[class*="StyledPropertyCard"],' +
-    '[class*="property-card"]'
-  );
-
-
-  if(!card){
-    continue;
-  }
-
-
-  const text =
-  (
-    card.innerText ||
-    card.textContent ||
-    ''
-  )
-  .replace(
-    /\\s+/g,
-    ' '
-  )
-  .trim();
-
-
   const url =
   href
     .split('?')[0]
@@ -829,13 +962,31 @@ for(
   }
 
 
+  const text =
+  findListingData(
+    link
+  );
+
+
+  const price =
+  parseMoney(
+    text
+  );
+
+
+  const sqft =
+  parseSqft(
+    text
+  );
+
+
   propertyMap.set(
     url,
     {
       url:url,
       text:text,
-      price:parseMoney(text),
-      sqft:parseSqft(text)
+      price:price,
+      sqft:sqft
     }
   );
 
@@ -855,9 +1006,11 @@ const properties =
 ];
 
 
-let recognizedHouseCount = 0;
-let passedPriceCount = 0;
-let passedSqftCount = 0;
+let readableCount = 0;
+let blockedCount = 0;
+let recognizedCount = 0;
+let priceCount = 0;
+let sqftCount = 0;
 
 
 const eligible =
@@ -868,10 +1021,20 @@ for(
   const property of properties
 ){
 
-  const recognizedHouse =
-  allowedTypes.test(
-    property.text
+  const hasReadableData =
+  (
+    property.price !== null ||
+    property.sqft !== null ||
+    property.text.length > 20
   );
+
+
+  if(!hasReadableData){
+    continue;
+  }
+
+
+  readableCount++;
 
 
   const blocked =
@@ -880,15 +1043,47 @@ for(
   );
 
 
+  if(blocked){
+
+    blockedCount++;
+
+    continue;
+
+  }
+
+
+  const explicitlyHouse =
+  positiveHouseLabels.test(
+    property.text
+  );
+
+
+  /*
+  Zillow does not always expose the words
+  "House for sale" in card text.
+
+  If there is no blocked property type and
+  the result has a price plus sqft, treat
+  it as a house candidate.
+  */
+
+
+  const implicitHouse =
+  (
+    property.price !== null &&
+    property.sqft !== null
+  );
+
+
   if(
-    !recognizedHouse ||
-    blocked
+    !explicitlyHouse &&
+    !implicitHouse
   ){
     continue;
   }
 
 
-  recognizedHouseCount++;
+  recognizedCount++;
 
 
   const pricePass =
@@ -904,7 +1099,7 @@ for(
   }
 
 
-  passedPriceCount++;
+  priceCount++;
 
 
   const sqftPass =
@@ -920,7 +1115,7 @@ for(
   }
 
 
-  passedSqftCount++;
+  sqftCount++;
 
 
   eligible.push(
@@ -932,7 +1127,7 @@ for(
 
 /*
 ======================================
-DIAGNOSTIC MESSAGE
+DIAGNOSTIC
 ======================================
 */
 
@@ -943,6 +1138,15 @@ if(
 
   const samples =
   properties
+    .filter(
+      function(property){
+
+        return(
+          property.text.length > 0
+        );
+
+      }
+    )
     .slice(0,3)
     .map(
       function(property,index){
@@ -950,10 +1154,23 @@ if(
         return(
           '\\n\\n' +
           (index + 1) +
-          '. ' +
+          '. Price=' +
+          (
+            property.price === null
+            ? 'unknown'
+            : '$' +
+              property.price.toLocaleString()
+          ) +
+          ', sqft=' +
+          (
+            property.sqft === null
+            ? 'unknown'
+            : property.sqft.toLocaleString()
+          ) +
+          '\\n' +
           property.text.slice(
             0,
-            220
+            260
           )
         );
 
@@ -965,7 +1182,7 @@ if(
   alert(
     'No eligible houses were found.' +
 
-    '\\n\\nYour criteria:' +
+    '\\n\\nCriteria:' +
 
     '\\nMinimum price: ' +
     (
@@ -1000,22 +1217,28 @@ if(
     '\\n\\nProperty links found: ' +
     links.length +
 
-    '\\nUnique cards read: ' +
+    '\\nUnique properties: ' +
     properties.length +
 
-    '\\nRecognized single-family: ' +
-    recognizedHouseCount +
+    '\\nProperties with readable data: ' +
+    readableCount +
+
+    '\\nBlocked property types: ' +
+    blockedCount +
+
+    '\\nRecognized house candidates: ' +
+    recognizedCount +
 
     '\\nPassed price filter: ' +
-    passedPriceCount +
+    priceCount +
 
     '\\nPassed square-footage filter: ' +
-    passedSqftCount +
+    sqftCount +
 
-    '\\n\\nSample card text:' +
+    '\\n\\nSamples:' +
     (
       samples ||
-      '\\nNo readable Zillow cards were detected.'
+      '\\nNo listing text or accessible labels could be read.'
     )
   );
 
@@ -1026,7 +1249,7 @@ if(
 
 /*
 ======================================
-RANDOMLY SELECT A HOUSE
+RANDOM SELECTION
 ======================================
 */
 
@@ -1091,21 +1314,9 @@ window.location.assign(
 })();`;
 
 
-    /*
-    ======================================
-    ASSIGN BOOKMARKLET
-    ======================================
-    */
-
     bookmarklet.href =
       bookmarkletCode;
 
-
-    /*
-    ======================================
-    MESSAGES
-    ======================================
-    */
 
     function showMessage(
       text,
@@ -1120,12 +1331,6 @@ window.location.assign(
 
     }
 
-
-    /*
-    ======================================
-    LOCATION URL
-    ======================================
-    */
 
     function makeLocationSlug(
       city,
@@ -1161,12 +1366,6 @@ window.location.assign(
 
     }
 
-
-    /*
-    ======================================
-    OPEN ZILLOW
-    ======================================
-    */
 
     function openSearch(){
 
@@ -1260,12 +1459,6 @@ window.location.assign(
     }
 
 
-    /*
-    ======================================
-    COPY RANDOMIZER
-    ======================================
-    */
-
     async function copyRandomizer(){
 
       try{
@@ -1278,7 +1471,7 @@ window.location.assign(
 
         showMessage(
 
-          "Corrected randomizer copied. Replace the URL in your existing Random Zillow House bookmark.",
+          "Fixed randomizer copied. Replace the URL in your existing Random Zillow House bookmark.",
 
           "success"
 
@@ -1298,12 +1491,6 @@ window.location.assign(
 
     }
 
-
-    /*
-    ======================================
-    RESTORE LOCATION
-    ======================================
-    */
 
     function restoreLocation(){
 
@@ -1341,12 +1528,6 @@ window.location.assign(
 
     }
 
-
-    /*
-    ======================================
-    EVENTS
-    ======================================
-    */
 
     openSearchButton
       .addEventListener(
