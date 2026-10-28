@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0"
@@ -51,19 +50,17 @@
       border-radius: 18px;
 
       box-shadow:
-        0 10px 35px rgba(0, 0, 0, 0.12);
+        0 10px 35px rgba(0,0,0,0.12);
     }
 
     h1 {
       margin: 0;
-
       text-align: center;
       font-size: 32px;
     }
 
     h2 {
       margin: 28px 0 6px;
-
       font-size: 19px;
     }
 
@@ -72,43 +69,36 @@
 
       text-align: center;
       color: var(--muted);
-
       line-height: 1.5;
     }
 
     label {
       display: block;
-
       margin: 17px 0 6px;
-
       font-weight: bold;
     }
 
     input {
       width: 100%;
-
       padding: 12px;
 
       border: 1px solid var(--border);
       border-radius: 8px;
 
       background: white;
-
       font-size: 16px;
     }
 
     input:focus {
       outline: none;
-
       border-color: var(--blue);
 
       box-shadow:
-        0 0 0 3px rgba(51, 102, 255, 0.14);
+        0 0 0 3px rgba(51,102,255,0.14);
     }
 
     .row {
       display: flex;
-
       gap: 14px;
     }
 
@@ -119,11 +109,9 @@
     button,
     .bookmarklet {
       display: block;
-
       width: 100%;
 
       margin-top: 16px;
-
       padding: 14px 16px;
 
       border: 0;
@@ -140,9 +128,7 @@
 
     .search-button {
       margin-top: 28px;
-
       color: white;
-
       background: var(--blue);
     }
 
@@ -152,7 +138,6 @@
 
     .bookmarklet {
       color: white;
-
       background: var(--green);
     }
 
@@ -162,7 +147,6 @@
 
     .copy-button {
       color: var(--blue);
-
       background: #eaf3ff;
 
       border: 1px solid #b4d5ff;
@@ -174,7 +158,6 @@
 
     .box {
       margin-top: 20px;
-
       padding: 16px;
 
       border: 1px solid var(--border);
@@ -189,51 +172,32 @@
 
     .small {
       color: var(--muted);
-
       font-size: 13px;
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
     .house-rule {
       color: var(--green);
-
       font-weight: bold;
-    }
-
-    #criteriaPreview {
-      margin-top: 12px;
-
-      padding: 12px;
-
-      border-radius: 8px;
-
-      background: #eef4ff;
-
-      font-size: 13px;
-      line-height: 1.65;
     }
 
     #message {
       min-height: 20px;
-
       margin-top: 15px;
 
       text-align: center;
 
       color: var(--muted);
-
       font-size: 14px;
     }
 
     #message.error {
       color: var(--red);
-
       font-weight: bold;
     }
 
     #message.success {
       color: var(--green);
-
       font-weight: bold;
     }
 
@@ -266,8 +230,8 @@
     </h1>
 
     <p class="subtitle">
-      Set your criteria, open Zillow, and randomly choose
-      a matching single-family house.
+      Pick a Zillow location, load some listings,
+      then let the randomizer choose a matching house.
     </p>
 
 
@@ -280,6 +244,7 @@
     <div class="row">
 
       <div>
+
         <label for="city">
           City
         </label>
@@ -290,9 +255,11 @@
           placeholder="Wichita"
           autocomplete="address-level2"
         >
+
       </div>
 
       <div>
+
         <label for="state">
           State
         </label>
@@ -304,90 +271,11 @@
           placeholder="KS"
           autocomplete="address-level1"
         >
+
       </div>
 
     </div>
 
-
-    <!-- PRICE -->
-
-    <h2>
-      💰 Price
-    </h2>
-
-    <div class="row">
-
-      <div>
-        <label for="minPrice">
-          Minimum price
-        </label>
-
-        <input
-          id="minPrice"
-          type="number"
-          min="0"
-          step="1000"
-          placeholder="No minimum"
-        >
-      </div>
-
-      <div>
-        <label for="maxPrice">
-          Maximum price
-        </label>
-
-        <input
-          id="maxPrice"
-          type="number"
-          min="0"
-          step="1000"
-          placeholder="No maximum"
-        >
-      </div>
-
-    </div>
-
-
-    <!-- SQUARE FOOTAGE -->
-
-    <h2>
-      📐 Square footage
-    </h2>
-
-    <div class="row">
-
-      <div>
-        <label for="minSqft">
-          Minimum square feet
-        </label>
-
-        <input
-          id="minSqft"
-          type="number"
-          min="0"
-          step="100"
-          placeholder="No minimum"
-        >
-      </div>
-
-      <div>
-        <label for="maxSqft">
-          Maximum square feet
-        </label>
-
-        <input
-          id="maxSqft"
-          type="number"
-          min="0"
-          step="100"
-          placeholder="No maximum"
-        >
-      </div>
-
-    </div>
-
-
-    <!-- PROPERTY TYPE -->
 
     <div class="box">
 
@@ -400,30 +288,15 @@
       </p>
 
       <p class="small">
-        The randomizer rejects condos, townhouses, townhomes,
-        apartments, land, manufactured homes, mobile homes,
-        and multifamily properties.
+        The randomizer excludes listings identified as
+        condos, townhouses, townhomes, apartments, land,
+        manufactured/mobile homes, and multifamily properties.
       </p>
 
     </div>
 
 
-    <!-- SETTINGS PREVIEW -->
-
-    <div class="box">
-
-      <strong>
-        Current game settings
-      </strong>
-
-      <div id="criteriaPreview">
-        Enter your criteria above.
-      </div>
-
-    </div>
-
-
-    <!-- SEARCH BUTTON -->
+    <!-- BLUE BUTTON -->
 
     <button
       id="openSearchButton"
@@ -432,6 +305,7 @@
     >
       🔎 Open Zillow Location
     </button>
+
 
     <div
       id="message"
@@ -445,14 +319,13 @@
     <section class="box">
 
       <h2>
-        🎲 Random House Bookmark
+        🎲 Random House
       </h2>
 
       <p class="small">
-        Install the bookmark once. The blue button places your
-        current price and square-footage criteria in the Zillow
-        address. The bookmark reads those criteria and filters
-        the loaded house cards.
+        Install this bookmark once. When you click it while
+        viewing Zillow search results, it asks for your
+        price and square-footage limits.
       </p>
 
       <a
@@ -473,13 +346,13 @@
       </button>
 
       <p class="small">
-        After Zillow opens, scroll down to load more listings.
-        Then click the Random Zillow House bookmark.
+        Leave any price or square-footage prompt blank for
+        no restriction.
       </p>
 
       <p class="small">
-        After installing this corrected bookmark, you can change
-        the criteria without updating the bookmark again.
+        Scroll through Zillow before running the bookmark
+        to load more houses into the random pool.
       </p>
 
     </section>
@@ -492,70 +365,38 @@
 
 
     /*
-    =====================================
-    CONFIGURATION
-    =====================================
+    ======================================
+    PAGE
+    ======================================
     */
 
     const STORAGE_KEY =
-      "homeAndGoSeekSettings";
+      "homeAndGoSeekLocation";
 
-
-    /*
-    =====================================
-    PAGE ELEMENTS
-    =====================================
-    */
 
     const cityInput =
-      document.getElementById(
-        "city"
-      );
+      document.getElementById("city");
+
 
     const stateInput =
-      document.getElementById(
-        "state"
-      );
+      document.getElementById("state");
 
-    const minPriceInput =
-      document.getElementById(
-        "minPrice"
-      );
-
-    const maxPriceInput =
-      document.getElementById(
-        "maxPrice"
-      );
-
-    const minSqftInput =
-      document.getElementById(
-        "minSqft"
-      );
-
-    const maxSqftInput =
-      document.getElementById(
-        "maxSqft"
-      );
-
-    const criteriaPreview =
-      document.getElementById(
-        "criteriaPreview"
-      );
 
     const message =
-      document.getElementById(
-        "message"
-      );
+      document.getElementById("message");
+
 
     const openSearchButton =
       document.getElementById(
         "openSearchButton"
       );
 
+
     const bookmarklet =
       document.getElementById(
         "bookmarklet"
       );
+
 
     const copyButton =
       document.getElementById(
@@ -564,69 +405,70 @@
 
 
     /*
-    =====================================
-    RANDOMIZER BOOKMARKLET
-    =====================================
+    ======================================
+    BOOKMARKLET
+    ======================================
 
-    The bookmark runs on Zillow.
+    Runs directly on Zillow.
 
-    It reads the criteria after #hags=
-    in the Zillow address.
+    Criteria are entered directly into
+    prompts on Zillow.
 
-    It then:
-
-    1. Finds loaded property cards.
-    2. Requires "House for sale".
-    3. Rejects unwanted property types.
-    4. Reads listing price.
-    5. Reads square footage.
-    6. Applies optional min/max bounds.
-    7. Randomly opens one eligible house.
-
-    =====================================
+    There is no transfer from the GitHub
+    site to Zillow.
+    ======================================
     */
+
 
     const bookmarkletCode =
 `javascript:(()=>{
 
-function decodeCriteria(){
+function askNumber(message){
 
-  try{
+  const input =
+  prompt(message,'');
 
-    const match =
-    location.hash.match(
-      /(?:^#|&)hags=([^&]+)/
-    );
+  if(input === null){
+    return {
+      cancelled:true,
+      value:null
+    };
+  }
 
-    if(!match){
-      return null;
-    }
+  const trimmed =
+  input
+    .replace(/[$,]/g,'')
+    .trim();
 
-    let encoded =
-    decodeURIComponent(match[1])
-      .replace(/-/g,'+')
-      .replace(/_/g,'/');
+  if(trimmed === ''){
 
-    while(encoded.length % 4){
-      encoded += '=';
-    }
-
-    const decodedText =
-    decodeURIComponent(
-      escape(
-        atob(encoded)
-      )
-    );
-
-    return JSON.parse(
-      decodedText
-    );
-
-  }catch(error){
-
-    return null;
+    return {
+      cancelled:false,
+      value:null
+    };
 
   }
+
+  const number =
+  Number(trimmed);
+
+  if(
+    !Number.isFinite(number) ||
+    number < 0
+  ){
+
+    alert(
+      'Please enter a positive number or leave the field blank.'
+    );
+
+    return askNumber(message);
+
+  }
+
+  return {
+    cancelled:false,
+    value:Math.round(number)
+  };
 
 }
 
@@ -644,7 +486,8 @@ function parseMoney(text){
 
   let value =
   Number(
-    match[1].replace(/,/g,'')
+    match[1]
+      .replace(/,/g,'')
   );
 
   if(!Number.isFinite(value)){
@@ -681,7 +524,8 @@ function parseSqft(text){
 
   const value =
   Number(
-    match[1].replace(/,/g,'')
+    match[1]
+      .replace(/,/g,'')
   );
 
   if(!Number.isFinite(value)){
@@ -699,39 +543,124 @@ function passesRange(
   maximum
 ){
 
-  if(value === null){
+  /*
+  If Zillow did not expose the value
+  in the card, don't include it when
+  that criterion is being used.
+  */
+
+  if(
+    value === null &&
+    (
+      minimum !== null ||
+      maximum !== null
+    )
+  ){
     return false;
   }
 
+
   if(
     minimum !== null &&
-    minimum !== undefined &&
     value < minimum
   ){
     return false;
   }
 
+
   if(
     maximum !== null &&
-    maximum !== undefined &&
     value > maximum
   ){
     return false;
   }
+
 
   return true;
 
 }
 
 
-const criteria =
-decodeCriteria();
+/*
+======================================
+GET CRITERIA
+======================================
+*/
 
 
-if(!criteria){
+const minPriceResult =
+askNumber(
+  'Minimum price?\\n\\nExample: 500000\\nLeave blank for no minimum.'
+);
+
+
+if(minPriceResult.cancelled){
+  return;
+}
+
+
+const maxPriceResult =
+askNumber(
+  'Maximum price?\\n\\nExample: 1000000\\nLeave blank for no maximum.'
+);
+
+
+if(maxPriceResult.cancelled){
+  return;
+}
+
+
+const minSqftResult =
+askNumber(
+  'Minimum square feet?\\n\\nExample: 2000\\nLeave blank for no minimum.'
+);
+
+
+if(minSqftResult.cancelled){
+  return;
+}
+
+
+const maxSqftResult =
+askNumber(
+  'Maximum square feet?\\n\\nExample: 5000\\nLeave blank for no maximum.'
+);
+
+
+if(maxSqftResult.cancelled){
+  return;
+}
+
+
+const minPrice =
+minPriceResult.value;
+
+
+const maxPrice =
+maxPriceResult.value;
+
+
+const minSqft =
+minSqftResult.value;
+
+
+const maxSqft =
+maxSqftResult.value;
+
+
+/*
+Validate ranges.
+*/
+
+
+if(
+  minPrice !== null &&
+  maxPrice !== null &&
+  minPrice > maxPrice
+){
 
   alert(
-    'Home and Go Seek criteria could not be loaded. Return to the Home and Go Seek page, use the blue button, and verify the Zillow address ends with #hags= followed by letters and numbers.'
+    'Minimum price cannot be greater than maximum price.'
   );
 
   return;
@@ -739,8 +668,37 @@ if(!criteria){
 }
 
 
+if(
+  minSqft !== null &&
+  maxSqft !== null &&
+  minSqft > maxSqft
+){
+
+  alert(
+    'Minimum square feet cannot be greater than maximum square feet.'
+  );
+
+  return;
+
+}
+
+
+/*
+======================================
+PROPERTY TYPES
+======================================
+*/
+
+
 const blockedTypes =
 /\\b(condo|condominium|townhouse|townhome|apartment|land for sale|manufactured|mobile home|multi-family|multifamily)\\b/i;
+
+
+/*
+======================================
+FIND LISTING CARDS
+======================================
+*/
 
 
 const links =
@@ -758,96 +716,131 @@ for(const link of links){
   const href =
   link.href;
 
+
   if(!href){
     continue;
   }
 
-  const isPropertyLink =
+
+  const propertyLink =
   href.includes('/homedetails/') ||
   /\\/\\d+_zpid\\/?/.test(href);
 
-  if(!isPropertyLink){
+
+  if(!propertyLink){
     continue;
   }
+
 
   const card =
   link.closest(
     'article,li,[data-test*="property-card"],[class*="property-card"],[class*="StyledPropertyCard"]'
   );
 
+
   if(!card){
     continue;
   }
+
 
   const text =
   (card.innerText || '')
     .replace(/\\s+/g,' ')
     .trim();
 
-  const cleanUrl =
+
+  const url =
   href
     .split('?')[0]
     .split('#')[0];
 
-  if(!propertyMap.has(cleanUrl)){
 
-    propertyMap.set(
-      cleanUrl,
-      {
-        url: cleanUrl,
-        text: text,
-        price: parseMoney(text),
-        sqft: parseSqft(text)
-      }
-    );
-
+  if(
+    propertyMap.has(url)
+  ){
+    continue;
   }
 
+
+  propertyMap.set(
+    url,
+    {
+      url:url,
+      text:text,
+      price:parseMoney(text),
+      sqft:parseSqft(text)
+    }
+  );
+
 }
+
+
+/*
+======================================
+FILTER RESULTS
+======================================
+*/
 
 
 const properties =
 [...propertyMap.values()];
 
 
-let houseCount = 0;
+let singleFamilyCount = 0;
 let priceCount = 0;
 let sqftCount = 0;
 
-const eligible = [];
+
+const eligible =
+[];
 
 
 for(const property of properties){
 
-  const saysHouseForSale =
-  /\\bhouse for sale\\b/i
-    .test(property.text);
+
+  /*
+  Zillow cards commonly identify a
+  single-family listing with the text:
+
+  House for sale
+  */
+
+
+  const houseForSale =
+  /\\bhouse for sale\\b/i.test(
+    property.text
+  );
+
 
   const blocked =
   blockedTypes.test(
     property.text
   );
 
+
   if(
-    !saysHouseForSale ||
+    !houseForSale ||
     blocked
   ){
     continue;
   }
 
-  houseCount++;
+
+  singleFamilyCount++;
 
 
   const pricePass =
   passesRange(
     property.price,
-    criteria.minPrice,
-    criteria.maxPrice
+    minPrice,
+    maxPrice
   );
+
 
   if(!pricePass){
     continue;
   }
+
 
   priceCount++;
 
@@ -855,15 +848,18 @@ for(const property of properties){
   const sqftPass =
   passesRange(
     property.sqft,
-    criteria.minSqft,
-    criteria.maxSqft
+    minSqft,
+    maxSqft
   );
+
 
   if(!sqftPass){
     continue;
   }
 
+
   sqftCount++;
+
 
   eligible.push(
     property
@@ -872,33 +868,73 @@ for(const property of properties){
 }
 
 
+/*
+======================================
+NOTHING FOUND
+======================================
+*/
+
+
 if(!eligible.length){
 
   alert(
-    'No eligible houses were found among the currently loaded Zillow cards.' +
-    '\\n\\nCriteria loaded:' +
+    'No eligible houses found.' +
+
+    '\\n\\nYour criteria:' +
+
     '\\nMinimum price: ' +
-    (criteria.minPrice === null ? 'None' : '$' + Number(criteria.minPrice).toLocaleString()) +
+    (
+      minPrice === null
+      ? 'None'
+      : '$' + minPrice.toLocaleString()
+    ) +
+
     '\\nMaximum price: ' +
-    (criteria.maxPrice === null ? 'None' : '$' + Number(criteria.maxPrice).toLocaleString()) +
+    (
+      maxPrice === null
+      ? 'None'
+      : '$' + maxPrice.toLocaleString()
+    ) +
+
     '\\nMinimum sqft: ' +
-    (criteria.minSqft === null ? 'None' : Number(criteria.minSqft).toLocaleString()) +
+    (
+      minSqft === null
+      ? 'None'
+      : minSqft.toLocaleString()
+    ) +
+
     '\\nMaximum sqft: ' +
-    (criteria.maxSqft === null ? 'None' : Number(criteria.maxSqft).toLocaleString()) +
+    (
+      maxSqft === null
+      ? 'None'
+      : maxSqft.toLocaleString()
+    ) +
+
     '\\n\\nLoaded property cards: ' +
     properties.length +
+
     '\\nSingle-family houses: ' +
-    houseCount +
+    singleFamilyCount +
+
     '\\nPassed price filter: ' +
     priceCount +
-    '\\nPassed sqft filter: ' +
+
+    '\\nPassed square-footage filter: ' +
     sqftCount +
-    '\\n\\nScroll down to load more listings or loosen the criteria.'
+
+    '\\n\\nScroll farther down Zillow to load more listings or loosen the criteria.'
   );
 
   return;
 
 }
+
+
+/*
+======================================
+RANDOM SELECTION
+======================================
+*/
 
 
 const previous =
@@ -909,8 +945,8 @@ sessionStorage.getItem(
 
 let choices =
 eligible.filter(
-  item =>
-  item.url !== previous
+  property =>
+  property.url !== previous
 );
 
 
@@ -931,17 +967,24 @@ crypto.getRandomValues(
 );
 
 
+const randomIndex =
+randomValues[0] %
+choices.length;
+
+
 const selected =
-choices[
-  randomValues[0] %
-  choices.length
-];
+choices[randomIndex];
 
 
 sessionStorage.setItem(
   'HAGS_LAST',
   selected.url
 );
+
+
+/*
+Open selected house.
+*/
 
 
 window.location.href =
@@ -952,24 +995,27 @@ selected.url;
 
 
     /*
-    Assign the bookmarklet code
-    to the green button.
+    ======================================
+    ASSIGN BOOKMARK
+    ======================================
     */
+
 
     bookmarklet.href =
       bookmarkletCode;
 
 
     /*
-    =====================================
-    STATUS MESSAGE
-    =====================================
+    ======================================
+    MESSAGES
+    ======================================
     */
+
 
     function showMessage(
       text,
       type = ""
-    ) {
+    ){
 
       message.textContent =
         text;
@@ -981,304 +1027,11 @@ selected.url;
 
 
     /*
-    =====================================
-    OPTIONAL NUMBER INPUT
-    =====================================
-
-    Blank values become null.
-
-    This supports:
-
-    Minimum only
-    Maximum only
-    Both
-    Neither
-
-    =====================================
+    ======================================
+    LOCATION
+    ======================================
     */
 
-    function readNumber(
-      input
-    ) {
-
-      const raw =
-        input.value.trim();
-
-      if(raw === ""){
-        return null;
-      }
-
-      const value =
-        Number(raw);
-
-      if(
-        !Number.isFinite(value) ||
-        value < 0
-      ){
-        return null;
-      }
-
-      return Math.round(value);
-
-    }
-
-
-    /*
-    =====================================
-    GET CURRENT SETTINGS
-    =====================================
-    */
-
-    function getSettings(){
-
-      return{
-
-        city:
-          cityInput
-            .value
-            .trim(),
-
-        state:
-          stateInput
-            .value
-            .trim()
-            .toUpperCase(),
-
-        minPrice:
-          readNumber(
-            minPriceInput
-          ),
-
-        maxPrice:
-          readNumber(
-            maxPriceInput
-          ),
-
-        minSqft:
-          readNumber(
-            minSqftInput
-          ),
-
-        maxSqft:
-          readNumber(
-            maxSqftInput
-          )
-
-      };
-
-    }
-
-
-    /*
-    =====================================
-    VALIDATION
-    =====================================
-    */
-
-    function validate(
-      settings
-    ){
-
-      if(
-        settings.city &&
-        !settings.state
-      ){
-
-        return(
-          "Enter a two-letter state with the city."
-        );
-
-      }
-
-      if(
-        settings.state &&
-        !/^[A-Z]{2}$/.test(
-          settings.state
-        )
-      ){
-
-        return(
-          "Use a two-letter state abbreviation, such as KS."
-        );
-
-      }
-
-      if(
-        settings.minPrice !== null &&
-        settings.maxPrice !== null &&
-        settings.minPrice >
-        settings.maxPrice
-      ){
-
-        return(
-          "Minimum price cannot be greater than maximum price."
-        );
-
-      }
-
-      if(
-        settings.minSqft !== null &&
-        settings.maxSqft !== null &&
-        settings.minSqft >
-        settings.maxSqft
-      ){
-
-        return(
-          "Minimum square feet cannot be greater than maximum square feet."
-        );
-
-      }
-
-      return "";
-
-    }
-
-
-    /*
-    =====================================
-    ESCAPE DISPLAY TEXT
-    =====================================
-    */
-
-    function escapeHtml(
-      text
-    ){
-
-      return String(text)
-
-        .replace(
-          /&/g,
-          "&amp;"
-        )
-
-        .replace(
-          /</g,
-          "&lt;"
-        )
-
-        .replace(
-          />/g,
-          "&gt;"
-        )
-
-        .replace(
-          /"/g,
-          "&quot;"
-        )
-
-        .replace(
-          /'/g,
-          "&#039;"
-        );
-
-    }
-
-
-    /*
-    =====================================
-    FORMAT DISPLAY VALUES
-    =====================================
-    */
-
-    function formatMoney(
-      value
-    ){
-
-      if(value === null){
-        return "No limit";
-      }
-
-      return(
-        "$" +
-        value.toLocaleString()
-      );
-
-    }
-
-
-    function formatSqft(
-      value
-    ){
-
-      if(value === null){
-        return "No limit";
-      }
-
-      return(
-        value.toLocaleString() +
-        " sq ft"
-      );
-
-    }
-
-
-    /*
-    =====================================
-    SETTINGS PREVIEW
-    =====================================
-    */
-
-    function updatePreview(){
-
-      const settings =
-        getSettings();
-
-      const location =
-        [
-          settings.city,
-          settings.state
-        ]
-        .filter(Boolean)
-        .join(", ") ||
-        "Any location";
-
-      criteriaPreview.innerHTML =
-
-        "<strong>Location:</strong> " +
-        escapeHtml(location) +
-        "<br>" +
-
-        "<strong>Minimum price:</strong> " +
-        formatMoney(
-          settings.minPrice
-        ) +
-        "<br>" +
-
-        "<strong>Maximum price:</strong> " +
-        formatMoney(
-          settings.maxPrice
-        ) +
-        "<br>" +
-
-        "<strong>Minimum square feet:</strong> " +
-        formatSqft(
-          settings.minSqft
-        ) +
-        "<br>" +
-
-        "<strong>Maximum square feet:</strong> " +
-        formatSqft(
-          settings.maxSqft
-        ) +
-        "<br>" +
-
-        "<strong>Type:</strong> " +
-        "Single-family house only";
-
-    }
-
-
-    /*
-    =====================================
-    LOCATION SLUG
-    =====================================
-
-    Wichita + KS becomes:
-
-    wichita-ks
-
-    =====================================
-    */
 
     function makeLocationSlug(
       city,
@@ -1292,6 +1045,7 @@ selected.url;
         ]
         .filter(Boolean)
         .join(" ");
+
 
       return location
 
@@ -1315,259 +1069,37 @@ selected.url;
 
 
     /*
-    =====================================
-    CRITERIA ENCODING
-    =====================================
-
-    This is the corrected version.
-
-    The criteria are converted to JSON
-    and encoded exactly once.
-
-    A correctly encoded value generally
-    begins with "eyJ".
-
-    =====================================
-    */
-
-    function encodeCriteria(
-      settings
-    ){
-
-      const criteria = {
-
-        minPrice:
-          settings.minPrice,
-
-        maxPrice:
-          settings.maxPrice,
-
-        minSqft:
-          settings.minSqft,
-
-        maxSqft:
-          settings.maxSqft
-
-      };
-
-
-      return btoa(
-
-        unescape(
-
-          encodeURIComponent(
-
-            JSON.stringify(
-              criteria
-            )
-
-          )
-
-        )
-
-      )
-
-      .replace(
-        /\+/g,
-        "-"
-      )
-
-      .replace(
-        /\//g,
-        "_"
-      )
-
-      .replace(
-        /=+$/g,
-        ""
-      );
-
-    }
-
-
-    /*
-    =====================================
-    BUILD ZILLOW LOCATION
-    =====================================
-
-    The criteria are appended after
-    #hags= so the Zillow bookmark can
-    read them.
-
-    =====================================
-    */
-
-    function buildZillowLocation(
-      settings
-    ){
-
-      let baseUrl =
-        "https://www.zillow.com/";
-
-
-      if(
-        settings.city ||
-        settings.state
-      ){
-
-        const slug =
-          makeLocationSlug(
-
-            settings.city,
-
-            settings.state
-
-          );
-
-
-        baseUrl =
-
-          "https://www.zillow.com/" +
-
-          slug +
-
-          "/";
-
-      }
-
-
-      const encodedCriteria =
-        encodeCriteria(
-          settings
-        );
-
-
-      return(
-
-        baseUrl +
-
-        "#hags=" +
-
-        encodeURIComponent(
-          encodedCriteria
-        )
-
-      );
-
-    }
-
-
-    /*
-    =====================================
-    SAVE SETTINGS
-    =====================================
-    */
-
-    function saveSettings(
-      settings
-    ){
-
-      localStorage.setItem(
-
-        STORAGE_KEY,
-
-        JSON.stringify(
-          settings
-        )
-
-      );
-
-    }
-
-
-    /*
-    =====================================
-    RESTORE SETTINGS
-    =====================================
-    */
-
-    function restoreSettings(){
-
-      const saved =
-        localStorage.getItem(
-          STORAGE_KEY
-        );
-
-
-      if(!saved){
-
-        updatePreview();
-
-        return;
-
-      }
-
-
-      try{
-
-        const settings =
-          JSON.parse(
-            saved
-          );
-
-
-        cityInput.value =
-          settings.city || "";
-
-
-        stateInput.value =
-          settings.state || "";
-
-
-        minPriceInput.value =
-          settings.minPrice ?? "";
-
-
-        maxPriceInput.value =
-          settings.maxPrice ?? "";
-
-
-        minSqftInput.value =
-          settings.minSqft ?? "";
-
-
-        maxSqftInput.value =
-          settings.maxSqft ?? "";
-
-      }catch{
-
-        localStorage.removeItem(
-          STORAGE_KEY
-        );
-
-      }
-
-
-      updatePreview();
-
-    }
-
-
-    /*
-    =====================================
+    ======================================
     OPEN ZILLOW
-    =====================================
+    ======================================
     */
+
 
     function openSearch(){
 
       showMessage("");
 
 
-      const settings =
-        getSettings();
+      const city =
+        cityInput
+          .value
+          .trim();
 
 
-      const error =
-        validate(
-          settings
-        );
+      const state =
+        stateInput
+          .value
+          .trim()
+          .toUpperCase();
 
 
-      if(error){
+      if(
+        city &&
+        !state
+      ){
 
         showMessage(
-          error,
+          "Enter a two-letter state with the city.",
           "error"
         );
 
@@ -1576,21 +1108,58 @@ selected.url;
       }
 
 
-      saveSettings(
-        settings
+      if(
+        state &&
+        !/^[A-Z]{2}$/.test(
+          state
+        )
+      ){
+
+        showMessage(
+          "Use a two-letter state abbreviation, such as KS.",
+          "error"
+        );
+
+        return;
+
+      }
+
+
+      localStorage.setItem(
+
+        STORAGE_KEY,
+
+        JSON.stringify({
+          city:city,
+          state:state
+        })
+
       );
 
 
-      const url =
-        buildZillowLocation(
-          settings
-        );
+      let url =
+        "https://www.zillow.com/";
 
 
-      /*
-      Same-tab navigation avoids the
-      browser popup blocker.
-      */
+      if(
+        city ||
+        state
+      ){
+
+        const slug =
+          makeLocationSlug(
+            city,
+            state
+          );
+
+
+        url =
+          "https://www.zillow.com/" +
+          slug +
+          "/";
+
+      }
+
 
       window.location.href =
         url;
@@ -1599,10 +1168,11 @@ selected.url;
 
 
     /*
-    =====================================
-    COPY BOOKMARKLET
-    =====================================
+    ======================================
+    COPY BOOKMARK
+    ======================================
     */
+
 
     async function copyRandomizer(){
 
@@ -1616,7 +1186,7 @@ selected.url;
 
         showMessage(
 
-          "Corrected randomizer copied. Replace the URL in your existing Random Zillow House bookmark with the copied code.",
+          "Randomizer copied. Edit your Random Zillow House bookmark and replace its URL with the copied code.",
 
           "success"
 
@@ -1626,7 +1196,7 @@ selected.url;
 
         window.prompt(
 
-          "Copy this code and paste it into the Random Zillow House bookmark URL:",
+          "Copy this code and paste it into your Random Zillow House bookmark URL:",
 
           bookmarkletCode
 
@@ -1638,10 +1208,55 @@ selected.url;
 
 
     /*
-    =====================================
-    EVENTS
-    =====================================
+    ======================================
+    RESTORE LOCATION
+    ======================================
     */
+
+
+    function restoreLocation(){
+
+      const saved =
+        localStorage.getItem(
+          STORAGE_KEY
+        );
+
+
+      if(!saved){
+        return;
+      }
+
+
+      try{
+
+        const location =
+          JSON.parse(saved);
+
+
+        cityInput.value =
+          location.city || "";
+
+
+        stateInput.value =
+          location.state || "";
+
+      }catch{
+
+        localStorage.removeItem(
+          STORAGE_KEY
+        );
+
+      }
+
+    }
+
+
+    /*
+    ======================================
+    EVENTS
+    ======================================
+    */
+
 
     openSearchButton
       .addEventListener(
@@ -1657,33 +1272,7 @@ selected.url;
       );
 
 
-    [
-      cityInput,
-      stateInput,
-      minPriceInput,
-      maxPriceInput,
-      minSqftInput,
-      maxSqftInput
-    ]
-    .forEach(
-      function(input){
-
-        input.addEventListener(
-          "input",
-          updatePreview
-        );
-
-      }
-    );
-
-
-    /*
-    =====================================
-    START
-    =====================================
-    */
-
-    restoreSettings();
+    restoreLocation();
 
   </script>
 
