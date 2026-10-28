@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Ready, Set, Zillow!</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --blue: #006aff;
+      --blue-dark: #0054cc;
+      --green: #16883e;
+      --green-dark: #106b30;
+      --red: #b42318;
+      --text: #202124;
+      --muted: #687078;
+      --border: #d4d9df;
+      --background: #f3f6f9;
+      --card: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 40px 18px;
+
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--background);
+    }
+
+    .card {
+      width: 100%;
+      max-width: 600px;
+      padding: 32px;
+
+      background: var(--card);
+      border-radius: 18px;
+
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+    }
+
+    h1 {
+      margin: 0;
+      text-align: center;
+      font-size: 32px;
+    }
+
+    .subtitle {
+      margin: 10px 0 28px;
+      text-align: center;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .section-title {
+      margin: 26px 0 6px;
+      font-size: 19px;
+    }
+
+    label {
+      display: block;
+      margin: 17px 0 6px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+
+      border: 1px solid var(--border);
+      border-radius: 8px;
+
+      font-size: 16px;
+      background: white;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(0, 106, 255, 0.14);
+    }
+
+    .row {
+      display: flex;
+      gap: 14px;
+    }
+
+    .row > div {
+      flex: 1;
+    }
+
+    button,
+    .bookmarklet {
+      width: 100%;
+      display: block;
+
+      margin-top: 16px;
+      padding: 14px 16px;
+
+      border: 0;
+      border-radius: 9px;
+
+      color: white;
+      text-align: center;
+      text-decoration: none;
+
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .search-button {
+      margin-top: 28px;
+      background: var(--blue);
+    }
+
+    .search-button:hover {
+      background: var(--blue-dark);
+    }
+
+    .random-button {
+      background: var(--green);
+    }
+
+    .random-button:hover {
+      background: var(--green-dark);
+    }
+
+    .secondary-button {
+      color: var(--blue);
+      background: #eaf3ff;
+      border: 1px solid #b4d5ff;
+    }
+
+    .secondary-button:hover {
+      background: #dbeaff;
+    }
+
+    .instructions {
+      margin-top: 28px;
+      padding: 18px;
+
+      background: #f7f9fb;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+    }
+
+    .instructions ol {
+      margin: 10px 0 0;
+      padding-left: 22px;
+      line-height: 1.55;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    #message {
+      min-height: 20px;
+      margin-top: 15px;
+
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+    }
+
+    #message.error {
+      color: var(--red);
+      font-weight: bold;
+    }
+
+    #message.success {
+      color: var(--green);
+      font-weight: bold;
+    }
+
+    @media (max-width: 540px) {
+      body {
+        padding: 18px 12px;
+      }
+
+      .card {
+        padding: 23px;
+      }
+
+      .row {
+        display: block;
+      }
+
+      h1 {
+        font-size: 27px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="card">
+
+    <h1>🏠 Ready, Set, Zillow!</h1>
+
+    <p class="subtitle">
+      Set your criteria, open the Zillow results, and use the
+      Random House bookmark to choose one of the loaded listings.
+    </p>
+
+    <h2 class="section-title">Location</h2>
+
+    <label for="city">City</label>
+
+    <input
+      id="city"
+      type="text"
+      placeholder="Wichita"
+      autocomplete="address-level2"
+    >
+
+    <label for="state">State</label>
+
+    <input
+      id="state"
+      type="text"
+      maxlength="2"
+      placeholder="KS"
+      autocomplete="address-level1"
+    >
+
+    <h2 class="section-title">Price</h2>
+
+    <div class="row">
+      <div>
+        <label for="minPrice">Minimum price</label>
+
+        <input
+          id="minPrice"
+          type="number"
+          min="0"
+          step="1000"
+          placeholder="250000"
+        >
+      </div>
+
+      <div>
+        <label for="maxPrice">Maximum price</label>
+
+        <input
+          id="maxPrice"
+          type="number"
+          min="0"
+          step="1000"
+          placeholder="750000"
+        >
+      </div>
+    </div>
+
+    <h2 class="section-title">Square footage</h2>
+
+    <div class="row">
+      <div>
+        <label for="minSqft">Minimum square feet</label>
+
+        <input
+          id="minSqft"
+          type="number"
+          min="0"
+          step="100"
+          placeholder="1500"
+        >
+      </div>
+
+      <div>
+        <label for="maxSqft">Maximum square feet</label>
+
+        <input
+          id="maxSqft"
+          type="number"
+          min="0"
+          step="100"
+          placeholder="3500"
+        >
+      </div>
+    </div>
+
+    <button
+      id="openSearchButton"
+      class="search-button"
+      type="button"
+    >
+      1. Open matching Zillow listings
+    </button>
+
+    <div id="message" role="status" aria-live="polite"></div>
+
+    <section class="instructions">
+      <h2 class="section-title">
+        Install the randomizer once
+      </h2>
+
+      <p class="small">
+        Drag the green button below to your browser's bookmarks bar.
+        If dragging doesn't work, use the copy button and create a new
+        bookmark manually.
+      </p>
+
+      <a
+        id="bookmarklet"
+        class="bookmarklet random-button"
+        href="#"
+        title="Drag this button to your bookmarks bar"
+      >
+        🎲 Random Zillow House
+      </a>
+
+      <button
+        id="copyBookmarkletButton"
+        class="secondary-button"
+        type="button"
+      >
+        Copy randomizer code
+      </button>
+
+      <ol>
+        <li>Install the bookmark above once.</li>
+        <li>Use this page to open your filtered Zillow results.</li>
+        <li>Scroll through the results to load more houses.</li>
+        <li>Click the <strong>Random Zillow House</strong> bookmark.</li>
+        <li>Click it again whenever you want another house.</li>
+      </ol>
+    </section>
+
+  </main>
+
+  <script>
+    "use strict";
+
+    const storageKey = "readySetZillowSettings";
+
+    const bookmarkletCode =
+`javascript:(()=>{const raw=[...document.querySelectorAll('a[href*="/homedetails/"]')].map(a=>a.href.split("?")[0]);const listings=[...new Set(raw)];if(!listings.length){alert("No Zillow listing links were found. Open a Zillow search-results page, wait for the listings to load, and try again.");return;}const previous=sessionStorage.getItem("readySetZillowPrevious");let choices=listings.filter(url=>url!==previous);if(!choices.length){choices=listings;}const buffer=new Uint32Array(1);crypto.getRandomValues(buffer);const selected=choices[buffer[0]%choices.length];sessionStorage.setItem("readySetZillowPrevious",selected);window.location.href=selected;})();`;
+
+    const elements = {
+      city: document.getElementById("city"),
+      state: document.getElementById("state"),
+      minPrice: document.getElementById("minPrice"),
+      maxPrice: document.getElementById("maxPrice"),
+      minSqft: document.getElementById("minSqft"),
+      maxSqft: document.getElementById("maxSqft"),
+      message: document.getElementById("message"),
+      openSearchButton:
+        document.getElementById("openSearchButton"),
+      bookmarklet:
+        document.getElementById("bookmarklet"),
+      copyBookmarkletButton:
+        document.getElementById("copyBookmarkletButton")
+    };
+
+    elements.bookmarklet.href = bookmarkletCode;
+
+    function showMessage(text, type = "") {
+      elements.message.textContent = text;
+      elements.message.className = type;
+    }
+
+    function readOptionalNumber(element) {
+      const rawValue = element.value.trim();
+
+      if (rawValue === "") {
+        return null;
+      }
+
+      const numberValue = Number(rawValue);
+
+      if (
+        !Number.isFinite(numberValue) ||
+        numberValue < 0
+      ) {
+        return null;
+      }
+
+      return Math.round(numberValue);
+    }
+
+    function getFormValues() {
+      return {
+        city: elements.city.value.trim(),
+        state: elements.state.value.trim().toUpperCase(),
+        minPrice: readOptionalNumber(elements.minPrice),
+        maxPrice: readOptionalNumber(elements.maxPrice),
+        minSqft: readOptionalNumber(elements.minSqft),
+        maxSqft: readOptionalNumber(elements.maxSqft)
+      };
+    }
+
+    function validateSettings(settings) {
+      if (
+        settings.state &&
+        !/^[A-Z]{2}$/.test(settings.state)
+      ) {
+        return "Enter the state as a two-letter abbreviation, such as KS.";
+      }
+
+      if (
+        settings.minPrice !== null &&
+        settings.maxPrice !== null &&
+        settings.minPrice > settings.maxPrice
+      ) {
+        return "Minimum price cannot exceed maximum price.";
+      }
+
+      if (
+        settings.minSqft !== null &&
+        settings.maxSqft !== null &&
+        settings.minSqft > settings.maxSqft
+      ) {
+        return "Minimum square feet cannot exceed maximum square feet.";
+      }
+
+      return "";
+    }
+
+    function buildRangeFilter(minimum, maximum) {
+      const range = {};
+
+      if (minimum !== null) {
+        range.min = minimum;
+      }
+
+      if (maximum !== null) {
+        range.max = maximum;
+      }
+
+      return range;
+    }
+
+    function buildZillowUrl(settings) {
+      const locationParts = [];
+
+      if (settings.city) {
+        locationParts.push(settings.city);
+      }
+
+      if (settings.state) {
+        locationParts.push(settings.state);
+      }
+
+      const searchTerm = locationParts.join(", ");
+
+      const filterState = {
+        isForSaleByAgent: {
+          value: true
+        },
+        isForSaleByOwner: {
+          value: true
+        },
+        isNewConstruction: {
+          value: true
+        },
+        isComingSoon: {
+          value: true
+        },
+        isAuction: {
+          value: false
+        }
+      };
+
+      if (
+        settings.minPrice !== null ||
+        settings.maxPrice !== null
+      ) {
+        filterState.price = buildRangeFilter(
+          settings.minPrice,
+          settings.maxPrice
+        );
+      }
+
+      if (
+        settings.minSqft !== null ||
+        settings.maxSqft !== null
+      ) {
+        filterState.sqft = buildRangeFilter(
+          settings.minSqft,
+          settings.maxSqft
+        );
+      }
+
+      const searchQueryState = {
+        pagination: {},
+        isMapVisible: true,
+        isListVisible: true,
+        filterState: filterState
+      };
+
+      if (searchTerm) {
+        searchQueryState.usersSearchTerm = searchTerm;
+      }
+
+      let baseUrl =
+        "https://www.zillow.com/homes/for_sale/";
+
+      if (searchTerm) {
+        const locationSlug = searchTerm
+          .normalize("NFKD")
+          .replace(/[^\w\s-]/g, "")
+          .trim()
+          .replace(/\s+/g, "-")
+          .toLowerCase();
+
+        baseUrl =
+          "https://www.zillow.com/homes/" +
+          locationSlug +
+          "_rb/";
+      }
+
+      return (
+        baseUrl +
+        "?searchQueryState=" +
+        encodeURIComponent(
+          JSON.stringify(searchQueryState)
+        )
+      );
+    }
+
+    function saveSettings(settings) {
+      localStorage.setItem(
+        storageKey,
+        JSON.stringify(settings)
+      );
+    }
+
+    function restoreSettings() {
+      const savedValue =
+        localStorage.getItem(storageKey);
+
+      if (!savedValue) {
+        return;
+      }
+
+      try {
+        const settings = JSON.parse(savedValue);
+
+        elements.city.value = settings.city || "";
+        elements.state.value = settings.state || "";
+
+        elements.minPrice.value =
+          settings.minPrice ?? "";
+
+        elements.maxPrice.value =
+          settings.maxPrice ?? "";
+
+        elements.minSqft.value =
+          settings.minSqft ?? "";
+
+        elements.maxSqft.value =
+          settings.maxSqft ?? "";
+      } catch {
+        localStorage.removeItem(storageKey);
+      }
+    }
+
+    function openZillowSearch() {
+      showMessage("");
+
+      const settings = getFormValues();
+      const validationError =
+        validateSettings(settings);
+
+      if (validationError) {
+        showMessage(validationError, "error");
+        return;
+      }
+
+      saveSettings(settings);
+
+      const zillowUrl =
+        buildZillowUrl(settings);
+
+      const newWindow = window.open(
+        zillowUrl,
+        "_blank",
+        "noopener"
+      );
+
+      if (!newWindow) {
+        showMessage(
+          "Your browser blocked the new tab. Allow pop-ups for this page and try again.",
+          "error"
+        );
+
+        return;
+      }
+
+      showMessage(
+        "Zillow opened. Let the results load, then click your Random Zillow House bookmark.",
+        "success"
+      );
+    }
+
+    async function copyRandomizer() {
+      try {
+        await navigator.clipboard.writeText(
+          bookmarkletCode
+        );
+
+        showMessage(
+          "Randomizer code copied. Create a bookmark and paste the code into its URL/address field.",
+          "success"
+        );
+      } catch {
+        window.prompt(
+          "Copy this code and paste it into a bookmark's URL/address field:",
+          bookmarkletCode
+        );
+      }
+    }
+
+    elements.openSearchButton.addEventListener(
+      "click",
+      openZillowSearch
+    );
+
+    elements.copyBookmarkletButton.addEventListener(
+      "click",
+      copyRandomizer
+    );
+
+    restoreSettings();
+  </script>
+</body>
+</html>
