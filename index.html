@@ -50,52 +50,65 @@
       background: var(--card);
       border-radius: 18px;
 
-      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+      box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.12);
     }
 
     h1 {
       margin: 0;
+
       text-align: center;
       font-size: 32px;
     }
 
     h2 {
       margin: 28px 0 6px;
+
       font-size: 19px;
     }
 
     .subtitle {
       margin: 10px 0 28px;
+
       text-align: center;
       color: var(--muted);
+
       line-height: 1.5;
     }
 
     label {
       display: block;
+
       margin: 17px 0 6px;
+
       font-weight: bold;
     }
 
     input {
       width: 100%;
+
       padding: 12px;
 
       border: 1px solid var(--border);
       border-radius: 8px;
 
       background: white;
+
       font-size: 16px;
     }
 
     input:focus {
       outline: none;
+
       border-color: var(--blue);
-      box-shadow: 0 0 0 3px rgba(51, 102, 255, 0.14);
+
+      box-shadow:
+        0 0 0 3px rgba(51, 102, 255, 0.14);
     }
 
     .row {
       display: flex;
+
       gap: 14px;
     }
 
@@ -106,8 +119,11 @@
     button,
     .bookmarklet {
       display: block;
+
       width: 100%;
+
       margin-top: 16px;
+
       padding: 14px 16px;
 
       border: 0;
@@ -115,14 +131,18 @@
 
       font-size: 17px;
       font-weight: bold;
+
       text-align: center;
       text-decoration: none;
+
       cursor: pointer;
     }
 
     .search-button {
       margin-top: 28px;
+
       color: white;
+
       background: var(--blue);
     }
 
@@ -132,6 +152,7 @@
 
     .bookmarklet {
       color: white;
+
       background: var(--green);
     }
 
@@ -141,7 +162,9 @@
 
     .copy-button {
       color: var(--blue);
+
       background: #eaf3ff;
+
       border: 1px solid #b4d5ff;
     }
 
@@ -151,6 +174,7 @@
 
     .box {
       margin-top: 20px;
+
       padding: 16px;
 
       border: 1px solid var(--border);
@@ -165,42 +189,51 @@
 
     .small {
       color: var(--muted);
+
       font-size: 13px;
       line-height: 1.5;
     }
 
     .house-rule {
       color: var(--green);
+
       font-weight: bold;
     }
 
     #criteriaPreview {
       margin-top: 12px;
+
       padding: 12px;
 
       border-radius: 8px;
+
       background: #eef4ff;
 
       font-size: 13px;
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     #message {
       min-height: 20px;
+
       margin-top: 15px;
 
       text-align: center;
+
       color: var(--muted);
+
       font-size: 14px;
     }
 
     #message.error {
       color: var(--red);
+
       font-weight: bold;
     }
 
     #message.success {
       color: var(--green);
+
       font-weight: bold;
     }
 
@@ -228,22 +261,28 @@
 
   <main class="card">
 
-    <h1>🏠 Home and Go Seek</h1>
+    <h1>
+      🏠 Home and Go Seek
+    </h1>
 
     <p class="subtitle">
-      Set your search criteria, open Zillow, and randomly choose
+      Set your criteria, open Zillow, and randomly choose
       a matching single-family house.
     </p>
 
 
     <!-- LOCATION -->
 
-    <h2>📍 Location</h2>
+    <h2>
+      📍 Location
+    </h2>
 
     <div class="row">
 
       <div>
-        <label for="city">City</label>
+        <label for="city">
+          City
+        </label>
 
         <input
           id="city"
@@ -254,7 +293,9 @@
       </div>
 
       <div>
-        <label for="state">State</label>
+        <label for="state">
+          State
+        </label>
 
         <input
           id="state"
@@ -270,12 +311,16 @@
 
     <!-- PRICE -->
 
-    <h2>💰 Price</h2>
+    <h2>
+      💰 Price
+    </h2>
 
     <div class="row">
 
       <div>
-        <label for="minPrice">Minimum price</label>
+        <label for="minPrice">
+          Minimum price
+        </label>
 
         <input
           id="minPrice"
@@ -287,7 +332,9 @@
       </div>
 
       <div>
-        <label for="maxPrice">Maximum price</label>
+        <label for="maxPrice">
+          Maximum price
+        </label>
 
         <input
           id="maxPrice"
@@ -303,12 +350,16 @@
 
     <!-- SQUARE FOOTAGE -->
 
-    <h2>📐 Square footage</h2>
+    <h2>
+      📐 Square footage
+    </h2>
 
     <div class="row">
 
       <div>
-        <label for="minSqft">Minimum square feet</label>
+        <label for="minSqft">
+          Minimum square feet
+        </label>
 
         <input
           id="minSqft"
@@ -320,7 +371,9 @@
       </div>
 
       <div>
-        <label for="maxSqft">Maximum square feet</label>
+        <label for="maxSqft">
+          Maximum square feet
+        </label>
 
         <input
           id="maxSqft"
@@ -338,7 +391,9 @@
 
     <div class="box">
 
-      <strong>🏡 Property type</strong>
+      <strong>
+        🏡 Property type
+      </strong>
 
       <p class="house-rule">
         Single-family houses only
@@ -346,18 +401,20 @@
 
       <p class="small">
         The randomizer rejects condos, townhouses, townhomes,
-        apartments, land, lots, manufactured homes, mobile homes,
+        apartments, land, manufactured homes, mobile homes,
         and multifamily properties.
       </p>
 
     </div>
 
 
-    <!-- CURRENT SETTINGS -->
+    <!-- SETTINGS PREVIEW -->
 
     <div class="box">
 
-      <strong>Current game settings</strong>
+      <strong>
+        Current game settings
+      </strong>
 
       <div id="criteriaPreview">
         Enter your criteria above.
@@ -366,7 +423,7 @@
     </div>
 
 
-    <!-- BLUE BUTTON -->
+    <!-- SEARCH BUTTON -->
 
     <button
       id="openSearchButton"
@@ -375,7 +432,6 @@
     >
       🔎 Open Zillow Location
     </button>
-
 
     <div
       id="message"
@@ -388,12 +444,15 @@
 
     <section class="box">
 
-      <h2>🎲 Random House Bookmark</h2>
+      <h2>
+        🎲 Random House Bookmark
+      </h2>
 
       <p class="small">
-        Install this bookmark once. The blue button passes the
-        current price and square-footage criteria to Zillow.
-        The bookmark reads those criteria from the Zillow address.
+        Install the bookmark once. The blue button places your
+        current price and square-footage criteria in the Zillow
+        address. The bookmark reads those criteria and filters
+        the loaded house cards.
       </p>
 
       <a
@@ -414,13 +473,13 @@
       </button>
 
       <p class="small">
-        After opening Zillow, scroll down to load house cards.
+        After Zillow opens, scroll down to load more listings.
         Then click the Random Zillow House bookmark.
       </p>
 
       <p class="small">
-        You only need to install this bookmark once. Changing the
-        form criteria does not require updating the bookmark again.
+        After installing this corrected bookmark, you can change
+        the criteria without updating the bookmark again.
       </p>
 
     </section>
@@ -431,365 +490,1171 @@
   <script>
     "use strict";
 
-    const STORAGE_KEY = "homeAndGoSeekSettings";
 
-    const cityInput =
-      document.getElementById("city");
+    /*
+    =====================================
+    CONFIGURATION
+    =====================================
+    */
 
-    const stateInput =
-      document.getElementById("state");
-
-    const minPriceInput =
-      document.getElementById("minPrice");
-
-    const maxPriceInput =
-      document.getElementById("maxPrice");
-
-    const minSqftInput =
-      document.getElementById("minSqft");
-
-    const maxSqftInput =
-      document.getElementById("maxSqft");
-
-    const criteriaPreview =
-      document.getElementById("criteriaPreview");
-
-    const message =
-      document.getElementById("message");
-
-    const openSearchButton =
-      document.getElementById("openSearchButton");
-
-    const bookmarklet =
-      document.getElementById("bookmarklet");
-
-    const copyButton =
-      document.getElementById("copyBookmarkletButton");
+    const STORAGE_KEY =
+      "homeAndGoSeekSettings";
 
 
     /*
-      This bookmarklet runs on Zillow.
+    =====================================
+    PAGE ELEMENTS
+    =====================================
+    */
 
-      It:
-      1. Reads criteria after #hags= in the Zillow address.
-      2. Finds loaded Zillow listing cards.
-      3. Extracts price and square footage.
-      4. Keeps only "House for sale" listings.
-      5. Rejects unwanted property types.
-      6. Applies min/max price and square-footage filters.
-      7. Randomly chooses one eligible house.
+    const cityInput =
+      document.getElementById(
+        "city"
+      );
+
+    const stateInput =
+      document.getElementById(
+        "state"
+      );
+
+    const minPriceInput =
+      document.getElementById(
+        "minPrice"
+      );
+
+    const maxPriceInput =
+      document.getElementById(
+        "maxPrice"
+      );
+
+    const minSqftInput =
+      document.getElementById(
+        "minSqft"
+      );
+
+    const maxSqftInput =
+      document.getElementById(
+        "maxSqft"
+      );
+
+    const criteriaPreview =
+      document.getElementById(
+        "criteriaPreview"
+      );
+
+    const message =
+      document.getElementById(
+        "message"
+      );
+
+    const openSearchButton =
+      document.getElementById(
+        "openSearchButton"
+      );
+
+    const bookmarklet =
+      document.getElementById(
+        "bookmarklet"
+      );
+
+    const copyButton =
+      document.getElementById(
+        "copyBookmarkletButton"
+      );
+
+
+    /*
+    =====================================
+    RANDOMIZER BOOKMARKLET
+    =====================================
+
+    The bookmark runs on Zillow.
+
+    It reads the criteria after #hags=
+    in the Zillow address.
+
+    It then:
+
+    1. Finds loaded property cards.
+    2. Requires "House for sale".
+    3. Rejects unwanted property types.
+    4. Reads listing price.
+    5. Reads square footage.
+    6. Applies optional min/max bounds.
+    7. Randomly opens one eligible house.
+
+    =====================================
     */
 
     const bookmarkletCode =
-`javascript:(()=>{function decodeCriteria(){try{const match=location.hash.match(/(?:^#|&)hags=([^&]+)/);if(!match)return null;let encoded=decodeURIComponent(match[1]).replace(/-/g,'+').replace(/_/g,'/');while(encoded.length%4)encoded+='=';return JSON.parse(decodeURIComponent(escape(atob(encoded))));}catch(error){return null;}}function parseMoney(text){const match=text.match(/\\$\\s*([\\d,.]+)\\s*([kKmM])?/);if(!match)return null;let value=Number(match[1].replace(/,/g,''));if(!Number.isFinite(value))return null;const suffix=(match[2]||'').toLowerCase();if(suffix==='k')value*=1000;if(suffix==='m')value*=1000000;return Math.round(value);}function parseSqft(text){const match=text.match(/([\\d,.]+)\\s*(?:sq\\.?\\s*ft\\.?|sqft)/i);if(!match)return null;const value=Number(match[1].replace(/,/g,''));return Number.isFinite(value)?Math.round(value):null;}function passes(value,min,max){if(value===null)return false;if(min!==null&&min!==undefined&&value<min)return false;if(max!==null&&max!==undefined&&value>max)return false;return true;}const criteria=decodeCriteria();if(!criteria){alert('Home and Go Seek criteria were not found in this Zillow address. Return to Home and Go Seek and use the blue button first.');return;}const blocked=/\\b(condo|condominium|townhouse|townhome|apartment|land|lot|manufactured|mobile home|multi-family|multifamily)\\b/i;const links=[...document.querySelectorAll('a[href]')];const allProperties=new Map();for(const link of links){const href=link.href;if(!href)continue;const propertyLink=href.includes('/homedetails/')||/\\/\\d+_zpid\\/?/.test(href);if(!propertyLink)continue;const card=link.closest('article,li,[data-test*="property-card"],[class*="property-card"],[class*="StyledPropertyCard"]');if(!card)continue;const text=(card.innerText||'').replace(/\\s+/g,' ').trim();const cleanUrl=href.split('?')[0].split('#')[0];if(!allProperties.has(cleanUrl)){allProperties.set(cleanUrl,{url:cleanUrl,text:text,price:parseMoney(text),sqft:parseSqft(text)});}}const properties=[...allProperties.values()];let houseCount=0;let priceCount=0;let sqftCount=0;const eligible=[];for(const property of properties){const isHouse=/\\bhouse for sale\\b/i.test(property.text)&&!blocked.test(property.text);if(!isHouse)continue;houseCount++;const pricePass=passes(property.price,criteria.minPrice,criteria.maxPrice);if(!pricePass)continue;priceCount++;const sqftPass=passes(property.sqft,criteria.minSqft,criteria.maxSqft);if(!sqftPass)continue;sqftCount++;eligible.push(property);}if(!eligible.length){alert('No eligible houses were found among the currently loaded cards.\\n\\nLoaded property cards: '+properties.length+'\\nSingle-family houses: '+houseCount+'\\nPassed price filter: '+priceCount+'\\nPassed square-footage filter: '+sqftCount+'\\n\\nScroll down to load more listings or loosen the criteria.');return;}const previous=sessionStorage.getItem('HAGS_LAST');let choices=eligible.filter(item=>item.url!==previous);if(!choices.length)choices=eligible;const randomValues=new Uint32Array(1);crypto.getRandomValues(randomValues);const selected=choices[randomValues[0]%choices.length];sessionStorage.setItem('HAGS_LAST',selected.url);window.location.href=selected.url;})();`;
+`javascript:(()=>{
 
-    bookmarklet.href = bookmarkletCode;
+function decodeCriteria(){
+
+  try{
+
+    const match =
+    location.hash.match(
+      /(?:^#|&)hags=([^&]+)/
+    );
+
+    if(!match){
+      return null;
+    }
+
+    let encoded =
+    decodeURIComponent(match[1])
+      .replace(/-/g,'+')
+      .replace(/_/g,'/');
+
+    while(encoded.length % 4){
+      encoded += '=';
+    }
+
+    const decodedText =
+    decodeURIComponent(
+      escape(
+        atob(encoded)
+      )
+    );
+
+    return JSON.parse(
+      decodedText
+    );
+
+  }catch(error){
+
+    return null;
+
+  }
+
+}
 
 
-    function showMessage(text, type = "") {
-      message.textContent = text;
-      message.className = type;
+function parseMoney(text){
+
+  const match =
+  text.match(
+    /\\$\\s*([\\d,.]+)\\s*([kKmM])?/
+  );
+
+  if(!match){
+    return null;
+  }
+
+  let value =
+  Number(
+    match[1].replace(/,/g,'')
+  );
+
+  if(!Number.isFinite(value)){
+    return null;
+  }
+
+  const suffix =
+  (match[2] || '')
+    .toLowerCase();
+
+  if(suffix === 'k'){
+    value *= 1000;
+  }
+
+  if(suffix === 'm'){
+    value *= 1000000;
+  }
+
+  return Math.round(value);
+
+}
+
+
+function parseSqft(text){
+
+  const match =
+  text.match(
+    /([\\d,.]+)\\s*(?:sq\\.?\\s*ft\\.?|sqft)/i
+  );
+
+  if(!match){
+    return null;
+  }
+
+  const value =
+  Number(
+    match[1].replace(/,/g,'')
+  );
+
+  if(!Number.isFinite(value)){
+    return null;
+  }
+
+  return Math.round(value);
+
+}
+
+
+function passesRange(
+  value,
+  minimum,
+  maximum
+){
+
+  if(value === null){
+    return false;
+  }
+
+  if(
+    minimum !== null &&
+    minimum !== undefined &&
+    value < minimum
+  ){
+    return false;
+  }
+
+  if(
+    maximum !== null &&
+    maximum !== undefined &&
+    value > maximum
+  ){
+    return false;
+  }
+
+  return true;
+
+}
+
+
+const criteria =
+decodeCriteria();
+
+
+if(!criteria){
+
+  alert(
+    'Home and Go Seek criteria could not be loaded. Return to the Home and Go Seek page, use the blue button, and verify the Zillow address ends with #hags= followed by letters and numbers.'
+  );
+
+  return;
+
+}
+
+
+const blockedTypes =
+/\\b(condo|condominium|townhouse|townhome|apartment|land for sale|manufactured|mobile home|multi-family|multifamily)\\b/i;
+
+
+const links =
+[...document.querySelectorAll(
+  'a[href]'
+)];
+
+
+const propertyMap =
+new Map();
+
+
+for(const link of links){
+
+  const href =
+  link.href;
+
+  if(!href){
+    continue;
+  }
+
+  const isPropertyLink =
+  href.includes('/homedetails/') ||
+  /\\/\\d+_zpid\\/?/.test(href);
+
+  if(!isPropertyLink){
+    continue;
+  }
+
+  const card =
+  link.closest(
+    'article,li,[data-test*="property-card"],[class*="property-card"],[class*="StyledPropertyCard"]'
+  );
+
+  if(!card){
+    continue;
+  }
+
+  const text =
+  (card.innerText || '')
+    .replace(/\\s+/g,' ')
+    .trim();
+
+  const cleanUrl =
+  href
+    .split('?')[0]
+    .split('#')[0];
+
+  if(!propertyMap.has(cleanUrl)){
+
+    propertyMap.set(
+      cleanUrl,
+      {
+        url: cleanUrl,
+        text: text,
+        price: parseMoney(text),
+        sqft: parseSqft(text)
+      }
+    );
+
+  }
+
+}
+
+
+const properties =
+[...propertyMap.values()];
+
+
+let houseCount = 0;
+let priceCount = 0;
+let sqftCount = 0;
+
+const eligible = [];
+
+
+for(const property of properties){
+
+  const saysHouseForSale =
+  /\\bhouse for sale\\b/i
+    .test(property.text);
+
+  const blocked =
+  blockedTypes.test(
+    property.text
+  );
+
+  if(
+    !saysHouseForSale ||
+    blocked
+  ){
+    continue;
+  }
+
+  houseCount++;
+
+
+  const pricePass =
+  passesRange(
+    property.price,
+    criteria.minPrice,
+    criteria.maxPrice
+  );
+
+  if(!pricePass){
+    continue;
+  }
+
+  priceCount++;
+
+
+  const sqftPass =
+  passesRange(
+    property.sqft,
+    criteria.minSqft,
+    criteria.maxSqft
+  );
+
+  if(!sqftPass){
+    continue;
+  }
+
+  sqftCount++;
+
+  eligible.push(
+    property
+  );
+
+}
+
+
+if(!eligible.length){
+
+  alert(
+    'No eligible houses were found among the currently loaded Zillow cards.' +
+    '\\n\\nCriteria loaded:' +
+    '\\nMinimum price: ' +
+    (criteria.minPrice === null ? 'None' : '$' + Number(criteria.minPrice).toLocaleString()) +
+    '\\nMaximum price: ' +
+    (criteria.maxPrice === null ? 'None' : '$' + Number(criteria.maxPrice).toLocaleString()) +
+    '\\nMinimum sqft: ' +
+    (criteria.minSqft === null ? 'None' : Number(criteria.minSqft).toLocaleString()) +
+    '\\nMaximum sqft: ' +
+    (criteria.maxSqft === null ? 'None' : Number(criteria.maxSqft).toLocaleString()) +
+    '\\n\\nLoaded property cards: ' +
+    properties.length +
+    '\\nSingle-family houses: ' +
+    houseCount +
+    '\\nPassed price filter: ' +
+    priceCount +
+    '\\nPassed sqft filter: ' +
+    sqftCount +
+    '\\n\\nScroll down to load more listings or loosen the criteria.'
+  );
+
+  return;
+
+}
+
+
+const previous =
+sessionStorage.getItem(
+  'HAGS_LAST'
+);
+
+
+let choices =
+eligible.filter(
+  item =>
+  item.url !== previous
+);
+
+
+if(!choices.length){
+
+  choices =
+  eligible;
+
+}
+
+
+const randomValues =
+new Uint32Array(1);
+
+
+crypto.getRandomValues(
+  randomValues
+);
+
+
+const selected =
+choices[
+  randomValues[0] %
+  choices.length
+];
+
+
+sessionStorage.setItem(
+  'HAGS_LAST',
+  selected.url
+);
+
+
+window.location.href =
+selected.url;
+
+
+})();`;
+
+
+    /*
+    Assign the bookmarklet code
+    to the green button.
+    */
+
+    bookmarklet.href =
+      bookmarkletCode;
+
+
+    /*
+    =====================================
+    STATUS MESSAGE
+    =====================================
+    */
+
+    function showMessage(
+      text,
+      type = ""
+    ) {
+
+      message.textContent =
+        text;
+
+      message.className =
+        type;
+
     }
 
 
-    function readNumber(input) {
-      const raw = input.value.trim();
+    /*
+    =====================================
+    OPTIONAL NUMBER INPUT
+    =====================================
 
-      if (raw === "") {
+    Blank values become null.
+
+    This supports:
+
+    Minimum only
+    Maximum only
+    Both
+    Neither
+
+    =====================================
+    */
+
+    function readNumber(
+      input
+    ) {
+
+      const raw =
+        input.value.trim();
+
+      if(raw === ""){
         return null;
       }
 
-      const value = Number(raw);
+      const value =
+        Number(raw);
 
-      if (!Number.isFinite(value) || value < 0) {
+      if(
+        !Number.isFinite(value) ||
+        value < 0
+      ){
         return null;
       }
 
       return Math.round(value);
-    }
 
-
-    function getSettings() {
-      return {
-        city:
-          cityInput.value.trim(),
-
-        state:
-          stateInput.value.trim().toUpperCase(),
-
-        minPrice:
-          readNumber(minPriceInput),
-
-        maxPrice:
-          readNumber(maxPriceInput),
-
-        minSqft:
-          readNumber(minSqftInput),
-
-        maxSqft:
-          readNumber(maxSqftInput)
-      };
-    }
-
-
-    function validate(settings) {
-      if (settings.city && !settings.state) {
-        return "Enter a two-letter state with the city.";
-      }
-
-      if (
-        settings.state &&
-        !/^[A-Z]{2}$/.test(settings.state)
-      ) {
-        return "Use a two-letter state abbreviation, such as KS.";
-      }
-
-      if (
-        settings.minPrice !== null &&
-        settings.maxPrice !== null &&
-        settings.minPrice > settings.maxPrice
-      ) {
-        return "Minimum price cannot be greater than maximum price.";
-      }
-
-      if (
-        settings.minSqft !== null &&
-        settings.maxSqft !== null &&
-        settings.minSqft > settings.maxSqft
-      ) {
-        return "Minimum square feet cannot be greater than maximum square feet.";
-      }
-
-      return "";
-    }
-
-
-    function formatMoney(value) {
-      if (value === null) {
-        return "No limit";
-      }
-
-      return "$" + value.toLocaleString();
-    }
-
-
-    function formatSqft(value) {
-      if (value === null) {
-        return "No limit";
-      }
-
-      return value.toLocaleString() + " sq ft";
-    }
-
-
-    function updatePreview() {
-      const settings = getSettings();
-
-      const location =
-        [settings.city, settings.state]
-          .filter(Boolean)
-          .join(", ") || "Any location";
-
-      criteriaPreview.innerHTML =
-        "<strong>Location:</strong> " +
-        escapeHtml(location) +
-        "<br>" +
-
-        "<strong>Price:</strong> " +
-        formatMoney(settings.minPrice) +
-        " to " +
-        formatMoney(settings.maxPrice) +
-        "<br>" +
-
-        "<strong>Square feet:</strong> " +
-        formatSqft(settings.minSqft) +
-        " to " +
-        formatSqft(settings.maxSqft) +
-        "<br>" +
-
-        "<strong>Type:</strong> Single-family house only";
-    }
-
-
-    function escapeHtml(text) {
-      return String(text)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-    }
-
-
-    function makeLocationSlug(city, state) {
-      const location =
-        [city, state]
-          .filter(Boolean)
-          .join(" ");
-
-      return location
-        .normalize("NFKD")
-        .replace(/[^\w\s-]/g, "")
-        .trim()
-        .replace(/\s+/g, "-")
-        .toLowerCase();
     }
 
 
     /*
-      Encodes the criteria so the bookmark can read them
-      from the Zillow URL.
-
-      Example:
-      #hags=eyJtaW5QcmljZSI6...
+    =====================================
+    GET CURRENT SETTINGS
+    =====================================
     */
 
-    function encodeCriteria(settings) {
-      const criteria = {
-        minPrice: settings.minPrice,
-        maxPrice: settings.maxPrice,
-        minSqft: settings.minSqft,
-        maxSqft: settings.maxSqft
+    function getSettings(){
+
+      return{
+
+        city:
+          cityInput
+            .value
+            .trim(),
+
+        state:
+          stateInput
+            .value
+            .trim()
+            .toUpperCase(),
+
+        minPrice:
+          readNumber(
+            minPriceInput
+          ),
+
+        maxPrice:
+          readNumber(
+            maxPriceInput
+          ),
+
+        minSqft:
+          readNumber(
+            minSqftInput
+          ),
+
+        maxSqft:
+          readNumber(
+            maxSqftInput
+          )
+
       };
 
-      return btoa(
-        unescape(
-          encodeURIComponent(
-            JSON.stringify(criteria)
-          )
-        )
-      )
-        .replace(/\+/g, "-")
-        .replace(/\//g, "_")
-        .replace(/=+$/g, "");
     }
 
 
-    function buildZillowLocation(settings) {
-      let baseUrl = "https://www.zillow.com/";
+    /*
+    =====================================
+    VALIDATION
+    =====================================
+    */
 
-      if (settings.city || settings.state) {
+    function validate(
+      settings
+    ){
+
+      if(
+        settings.city &&
+        !settings.state
+      ){
+
+        return(
+          "Enter a two-letter state with the city."
+        );
+
+      }
+
+      if(
+        settings.state &&
+        !/^[A-Z]{2}$/.test(
+          settings.state
+        )
+      ){
+
+        return(
+          "Use a two-letter state abbreviation, such as KS."
+        );
+
+      }
+
+      if(
+        settings.minPrice !== null &&
+        settings.maxPrice !== null &&
+        settings.minPrice >
+        settings.maxPrice
+      ){
+
+        return(
+          "Minimum price cannot be greater than maximum price."
+        );
+
+      }
+
+      if(
+        settings.minSqft !== null &&
+        settings.maxSqft !== null &&
+        settings.minSqft >
+        settings.maxSqft
+      ){
+
+        return(
+          "Minimum square feet cannot be greater than maximum square feet."
+        );
+
+      }
+
+      return "";
+
+    }
+
+
+    /*
+    =====================================
+    ESCAPE DISPLAY TEXT
+    =====================================
+    */
+
+    function escapeHtml(
+      text
+    ){
+
+      return String(text)
+
+        .replace(
+          /&/g,
+          "&amp;"
+        )
+
+        .replace(
+          /</g,
+          "&lt;"
+        )
+
+        .replace(
+          />/g,
+          "&gt;"
+        )
+
+        .replace(
+          /"/g,
+          "&quot;"
+        )
+
+        .replace(
+          /'/g,
+          "&#039;"
+        );
+
+    }
+
+
+    /*
+    =====================================
+    FORMAT DISPLAY VALUES
+    =====================================
+    */
+
+    function formatMoney(
+      value
+    ){
+
+      if(value === null){
+        return "No limit";
+      }
+
+      return(
+        "$" +
+        value.toLocaleString()
+      );
+
+    }
+
+
+    function formatSqft(
+      value
+    ){
+
+      if(value === null){
+        return "No limit";
+      }
+
+      return(
+        value.toLocaleString() +
+        " sq ft"
+      );
+
+    }
+
+
+    /*
+    =====================================
+    SETTINGS PREVIEW
+    =====================================
+    */
+
+    function updatePreview(){
+
+      const settings =
+        getSettings();
+
+      const location =
+        [
+          settings.city,
+          settings.state
+        ]
+        .filter(Boolean)
+        .join(", ") ||
+        "Any location";
+
+      criteriaPreview.innerHTML =
+
+        "<strong>Location:</strong> " +
+        escapeHtml(location) +
+        "<br>" +
+
+        "<strong>Minimum price:</strong> " +
+        formatMoney(
+          settings.minPrice
+        ) +
+        "<br>" +
+
+        "<strong>Maximum price:</strong> " +
+        formatMoney(
+          settings.maxPrice
+        ) +
+        "<br>" +
+
+        "<strong>Minimum square feet:</strong> " +
+        formatSqft(
+          settings.minSqft
+        ) +
+        "<br>" +
+
+        "<strong>Maximum square feet:</strong> " +
+        formatSqft(
+          settings.maxSqft
+        ) +
+        "<br>" +
+
+        "<strong>Type:</strong> " +
+        "Single-family house only";
+
+    }
+
+
+    /*
+    =====================================
+    LOCATION SLUG
+    =====================================
+
+    Wichita + KS becomes:
+
+    wichita-ks
+
+    =====================================
+    */
+
+    function makeLocationSlug(
+      city,
+      state
+    ){
+
+      const location =
+        [
+          city,
+          state
+        ]
+        .filter(Boolean)
+        .join(" ");
+
+      return location
+
+        .normalize("NFKD")
+
+        .replace(
+          /[^\w\s-]/g,
+          ""
+        )
+
+        .trim()
+
+        .replace(
+          /\s+/g,
+          "-"
+        )
+
+        .toLowerCase();
+
+    }
+
+
+    /*
+    =====================================
+    CRITERIA ENCODING
+    =====================================
+
+    This is the corrected version.
+
+    The criteria are converted to JSON
+    and encoded exactly once.
+
+    A correctly encoded value generally
+    begins with "eyJ".
+
+    =====================================
+    */
+
+    function encodeCriteria(
+      settings
+    ){
+
+      const criteria = {
+
+        minPrice:
+          settings.minPrice,
+
+        maxPrice:
+          settings.maxPrice,
+
+        minSqft:
+          settings.minSqft,
+
+        maxSqft:
+          settings.maxSqft
+
+      };
+
+
+      return btoa(
+
+        unescape(
+
+          encodeURIComponent(
+
+            JSON.stringify(
+              criteria
+            )
+
+          )
+
+        )
+
+      )
+
+      .replace(
+        /\+/g,
+        "-"
+      )
+
+      .replace(
+        /\//g,
+        "_"
+      )
+
+      .replace(
+        /=+$/g,
+        ""
+      );
+
+    }
+
+
+    /*
+    =====================================
+    BUILD ZILLOW LOCATION
+    =====================================
+
+    The criteria are appended after
+    #hags= so the Zillow bookmark can
+    read them.
+
+    =====================================
+    */
+
+    function buildZillowLocation(
+      settings
+    ){
+
+      let baseUrl =
+        "https://www.zillow.com/";
+
+
+      if(
+        settings.city ||
+        settings.state
+      ){
+
         const slug =
           makeLocationSlug(
+
             settings.city,
+
             settings.state
+
           );
 
+
         baseUrl =
+
           "https://www.zillow.com/" +
+
           slug +
+
           "/";
+
       }
+
 
       const encodedCriteria =
-        encodeCriteria(settings);
+        encodeCriteria(
+          settings
+        );
 
-      return (
+
+      return(
+
         baseUrl +
+
         "#hags=" +
-        encodeURIComponent(encodedCriteria)
+
+        encodeURIComponent(
+          encodedCriteria
+        )
+
       );
+
     }
 
 
-    function saveSettings(settings) {
+    /*
+    =====================================
+    SAVE SETTINGS
+    =====================================
+    */
+
+    function saveSettings(
+      settings
+    ){
+
       localStorage.setItem(
+
         STORAGE_KEY,
-        JSON.stringify(settings)
+
+        JSON.stringify(
+          settings
+        )
+
       );
+
     }
 
 
-    function restoreSettings() {
-      const saved =
-        localStorage.getItem(STORAGE_KEY);
+    /*
+    =====================================
+    RESTORE SETTINGS
+    =====================================
+    */
 
-      if (!saved) {
+    function restoreSettings(){
+
+      const saved =
+        localStorage.getItem(
+          STORAGE_KEY
+        );
+
+
+      if(!saved){
+
         updatePreview();
+
         return;
+
       }
 
-      try {
+
+      try{
+
         const settings =
-          JSON.parse(saved);
+          JSON.parse(
+            saved
+          );
+
 
         cityInput.value =
           settings.city || "";
 
+
         stateInput.value =
           settings.state || "";
+
 
         minPriceInput.value =
           settings.minPrice ?? "";
 
+
         maxPriceInput.value =
           settings.maxPrice ?? "";
+
 
         minSqftInput.value =
           settings.minSqft ?? "";
 
+
         maxSqftInput.value =
           settings.maxSqft ?? "";
-      } catch {
-        localStorage.removeItem(STORAGE_KEY);
+
+      }catch{
+
+        localStorage.removeItem(
+          STORAGE_KEY
+        );
+
       }
+
 
       updatePreview();
+
     }
 
 
-    function openSearch() {
+    /*
+    =====================================
+    OPEN ZILLOW
+    =====================================
+    */
+
+    function openSearch(){
+
       showMessage("");
 
-      const settings = getSettings();
-      const error = validate(settings);
 
-      if (error) {
-        showMessage(error, "error");
-        return;
-      }
-
-      saveSettings(settings);
-
-      const url =
-        buildZillowLocation(settings);
-
-      /*
-        Same-tab navigation avoids popup blocking.
-      */
-
-      window.location.href = url;
-    }
+      const settings =
+        getSettings();
 
 
-    async function copyRandomizer() {
-      try {
-        await navigator.clipboard.writeText(
-          bookmarkletCode
+      const error =
+        validate(
+          settings
         );
+
+
+      if(error){
 
         showMessage(
-          "Randomizer copied. Replace the URL in your existing Random Zillow House bookmark with the copied code.",
-          "success"
+          error,
+          "error"
         );
-      } catch {
-        window.prompt(
-          "Copy this code and paste it into your Random Zillow House bookmark URL:",
-          bookmarkletCode
-        );
+
+        return;
+
       }
+
+
+      saveSettings(
+        settings
+      );
+
+
+      const url =
+        buildZillowLocation(
+          settings
+        );
+
+
+      /*
+      Same-tab navigation avoids the
+      browser popup blocker.
+      */
+
+      window.location.href =
+        url;
+
     }
 
 
-    openSearchButton.addEventListener(
-      "click",
-      openSearch
-    );
+    /*
+    =====================================
+    COPY BOOKMARKLET
+    =====================================
+    */
 
-    copyButton.addEventListener(
-      "click",
-      copyRandomizer
-    );
+    async function copyRandomizer(){
+
+      try{
+
+        await navigator.clipboard
+          .writeText(
+            bookmarkletCode
+          );
+
+
+        showMessage(
+
+          "Corrected randomizer copied. Replace the URL in your existing Random Zillow House bookmark with the copied code.",
+
+          "success"
+
+        );
+
+      }catch{
+
+        window.prompt(
+
+          "Copy this code and paste it into the Random Zillow House bookmark URL:",
+
+          bookmarkletCode
+
+        );
+
+      }
+
+    }
+
+
+    /*
+    =====================================
+    EVENTS
+    =====================================
+    */
+
+    openSearchButton
+      .addEventListener(
+        "click",
+        openSearch
+      );
+
+
+    copyButton
+      .addEventListener(
+        "click",
+        copyRandomizer
+      );
 
 
     [
@@ -799,13 +1664,24 @@
       maxPriceInput,
       minSqftInput,
       maxSqftInput
-    ].forEach(function(input) {
-      input.addEventListener(
-        "input",
-        updatePreview
-      );
-    });
+    ]
+    .forEach(
+      function(input){
 
+        input.addEventListener(
+          "input",
+          updatePreview
+        );
+
+      }
+    );
+
+
+    /*
+    =====================================
+    START
+    =====================================
+    */
 
     restoreSettings();
 
