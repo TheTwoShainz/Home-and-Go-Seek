@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -11,6 +13,7 @@
   <title>Home and Go Seek</title>
 
   <style>
+
     * {
       box-sizing: border-box;
     }
@@ -18,23 +21,33 @@
     :root {
       --blue: #3366ff;
       --blue-dark: #244fd1;
+
       --green: #16883e;
       --green-dark: #106b30;
+
       --red: #b42318;
+
       --text: #202124;
       --muted: #687078;
+
       --border: #d4d9df;
+
       --background: #f3f6f9;
-      --card: white;
+      --card: #ffffff;
     }
 
     body {
+
       margin: 0;
+
       min-height: 100vh;
+
       padding: 40px 18px;
 
       display: flex;
+
       justify-content: center;
+
       align-items: flex-start;
 
       font-family:
@@ -42,237 +55,342 @@
         Helvetica,
         sans-serif;
 
-      color: var(--text);
-      background: var(--background);
+      color:
+        var(--text);
+
+      background:
+        var(--background);
+
     }
 
     .card {
+
       width: 100%;
+
       max-width: 620px;
+
       padding: 32px;
 
-      background: var(--card);
+      background:
+        var(--card);
+
       border-radius: 18px;
 
       box-shadow:
         0 10px 35px
         rgba(0,0,0,0.12);
+
     }
 
     h1 {
+
       margin: 0;
 
       text-align: center;
+
       font-size: 32px;
+
     }
 
     h2 {
-      margin: 28px 0 6px;
+
+      margin:
+        28px 0 6px;
 
       font-size: 19px;
+
     }
 
     .subtitle {
-      margin: 10px 0 28px;
+
+      margin:
+        10px 0 28px;
+
+      color:
+        var(--muted);
 
       text-align: center;
-      color: var(--muted);
 
       line-height: 1.5;
+
     }
 
     label {
+
       display: block;
 
-      margin: 17px 0 6px;
+      margin:
+        17px 0 6px;
 
       font-weight: bold;
+
     }
 
     input {
+
       width: 100%;
 
       padding: 12px;
 
       border:
-        1px solid var(--border);
+        1px solid
+        var(--border);
 
       border-radius: 8px;
 
-      background: white;
+      background:
+        white;
 
       font-size: 16px;
+
     }
 
     input:focus {
+
       outline: none;
 
-      border-color: var(--blue);
+      border-color:
+        var(--blue);
 
       box-shadow:
         0 0 0 3px
-        rgba(51,102,255,0.14);
+        rgba(
+          51,
+          102,
+          255,
+          0.14
+        );
+
     }
 
     .row {
+
       display: flex;
+
       gap: 14px;
+
     }
 
     .row > div {
+
       flex: 1;
+
     }
 
     .box {
+
       margin-top: 20px;
+
       padding: 16px;
 
       border:
-        1px solid var(--border);
+        1px solid
+        var(--border);
 
       border-radius: 11px;
 
-      background: #f8fafc;
+      background:
+        #f8fafc;
+
     }
 
     .house-only {
-      margin: 7px 0;
 
-      color: var(--green);
+      margin:
+        7px 0;
+
+      color:
+        var(--green);
 
       font-size: 17px;
+
       font-weight: bold;
+
     }
 
     .small {
-      color: var(--muted);
+
+      color:
+        var(--muted);
 
       font-size: 13px;
 
       line-height: 1.55;
+
     }
 
     button,
     .bookmarklet {
+
       display: block;
 
       width: 100%;
 
       margin-top: 16px;
 
-      padding: 14px 16px;
+      padding:
+        14px 16px;
 
       border: 0;
+
       border-radius: 9px;
 
       font-size: 17px;
+
       font-weight: bold;
 
       text-align: center;
+
       text-decoration: none;
 
       cursor: pointer;
+
     }
 
     .search-button {
+
       margin-top: 28px;
 
       color: white;
 
-      background: var(--blue);
+      background:
+        var(--blue);
+
     }
 
     .search-button:hover {
-      background: var(--blue-dark);
+
+      background:
+        var(--blue-dark);
+
     }
 
     .bookmarklet {
+
       color: white;
 
-      background: var(--green);
+      background:
+        var(--green);
+
     }
 
     .bookmarklet:hover {
-      background: var(--green-dark);
+
+      background:
+        var(--green-dark);
+
     }
 
     .copy-button {
-      color: var(--blue);
 
-      background: #eaf3ff;
+      color:
+        var(--blue);
+
+      background:
+        #eaf3ff;
 
       border:
-        1px solid #b4d5ff;
+        1px solid
+        #b4d5ff;
+
     }
 
     .copy-button:hover {
-      background: #dbeaff;
+
+      background:
+        #dbeaff;
+
     }
 
     #preview {
+
       margin-top: 10px;
 
       padding: 12px;
 
-      background: #eef4ff;
+      background:
+        #eef4ff;
 
       border-radius: 8px;
 
       font-size: 13px;
 
       line-height: 1.65;
+
     }
 
     #message {
+
       min-height: 20px;
 
       margin-top: 14px;
 
       text-align: center;
 
+      color:
+        var(--muted);
+
       font-size: 14px;
 
-      color: var(--muted);
     }
 
     #message.error {
-      color: var(--red);
+
+      color:
+        var(--red);
 
       font-weight: bold;
+
     }
 
     #message.success {
-      color: var(--green);
+
+      color:
+        var(--green);
 
       font-weight: bold;
+
     }
 
     @media (max-width: 540px) {
 
       body {
+
         padding:
           18px 12px;
+
       }
 
       .card {
+
         padding: 23px;
+
       }
 
       .row {
+
         display: block;
+
       }
 
       h1 {
+
         font-size: 27px;
+
       }
+
     }
+
   </style>
+
 </head>
 
 
 <body>
 
+
   <main class="card">
+
 
     <h1>
       🏠 Home and Go Seek
@@ -280,12 +398,18 @@
 
 
     <p class="subtitle">
-      Build your Zillow search here,
-      then roll for a random house.
+
+      Choose the rules.
+
+      Zillow does the filtering.
+
+      The randomizer picks the house.
+
     </p>
 
 
     <!-- LOCATION -->
+
 
     <h2>
       📍 Location
@@ -294,16 +418,19 @@
 
     <div class="row">
 
+
       <div>
 
         <label for="city">
           City
         </label>
 
+
         <input
           id="city"
           type="text"
           placeholder="Wichita"
+          autocomplete="address-level2"
         >
 
       </div>
@@ -315,19 +442,23 @@
           State
         </label>
 
+
         <input
           id="state"
           type="text"
           maxlength="2"
           placeholder="KS"
+          autocomplete="address-level1"
         >
 
       </div>
+
 
     </div>
 
 
     <!-- PRICE -->
+
 
     <h2>
       💰 Price
@@ -336,11 +467,13 @@
 
     <div class="row">
 
+
       <div>
 
         <label for="minPrice">
           Minimum
         </label>
+
 
         <input
           id="minPrice"
@@ -359,6 +492,7 @@
           Maximum
         </label>
 
+
         <input
           id="maxPrice"
           type="number"
@@ -369,10 +503,12 @@
 
       </div>
 
+
     </div>
 
 
-    <!-- SQUARE FEET -->
+    <!-- SQ FT -->
+
 
     <h2>
       📐 Square Footage
@@ -381,11 +517,13 @@
 
     <div class="row">
 
+
       <div>
 
         <label for="minSqft">
           Minimum
         </label>
+
 
         <input
           id="minSqft"
@@ -404,6 +542,7 @@
           Maximum
         </label>
 
+
         <input
           id="maxSqft"
           type="number"
@@ -414,10 +553,12 @@
 
       </div>
 
+
     </div>
 
 
-    <!-- HOME TYPE -->
+    <!-- PROPERTY TYPE -->
+
 
     <div class="box">
 
@@ -425,15 +566,17 @@
         🏡 Property Type
       </strong>
 
+
       <div class="house-only">
-        Houses Only
+        Single-Family Houses Only
       </div>
 
+
       <div class="small">
-        Condos, townhouses, apartments,
-        manufactured homes, multifamily
-        properties, and land are excluded
-        from the requested Zillow search.
+
+        The Zillow location itself is opened
+        using the Houses-only route.
+
       </div>
 
     </div>
@@ -441,11 +584,13 @@
 
     <!-- PREVIEW -->
 
+
     <div class="box">
 
       <strong>
         Your Game
       </strong>
+
 
       <div id="preview">
       </div>
@@ -453,26 +598,33 @@
     </div>
 
 
-    <!-- ZILLOW BUTTON -->
+    <!-- SEARCH -->
+
 
     <button
       id="searchButton"
       class="search-button"
       type="button"
     >
+
       🔎 Open Filtered Zillow Search
+
     </button>
 
 
     <div
       id="message"
       role="status"
-    ></div>
+      aria-live="polite"
+    >
+    </div>
 
 
     <!-- RANDOMIZER -->
 
+
     <section class="box">
+
 
       <h2>
         🎲 Randomizer
@@ -480,11 +632,14 @@
 
 
       <p class="small">
-        The bookmark does not filter listings.
-        Zillow does that first.
-        The bookmark only randomly chooses
-        from the property links currently
-        in the filtered Zillow results.
+
+        Zillow handles the location,
+        house type, price,
+        and square-footage filters.
+
+        This bookmark only picks
+        a random property link.
+
       </p>
 
 
@@ -493,7 +648,9 @@
         class="bookmarklet"
         href="#"
       >
+
         🎲 Random Zillow House
+
       </a>
 
 
@@ -502,22 +659,30 @@
         class="copy-button"
         type="button"
       >
+
         Copy Randomizer Code
+
       </button>
 
 
       <p class="small">
-        Install the bookmark once.
-        You do not need to update it
-        whenever you change your search.
+
+        Scroll through the Zillow
+        search results before clicking
+        the bookmark to give the
+        randomizer a larger pool.
+
       </p>
 
+
     </section>
+
 
   </main>
 
 
   <script>
+
     "use strict";
 
 
@@ -526,9 +691,9 @@
 
 
     /*
-    ========================================
+    =====================================
     ELEMENTS
-    ========================================
+    =====================================
     */
 
 
@@ -599,12 +764,12 @@
 
 
     /*
-    ========================================
+    =====================================
     RANDOMIZER
 
-    This intentionally does NOTHING except
-    pick a random unique Zillow property URL.
-    ========================================
+    ONLY RANDOMIZES PROPERTY LINKS.
+    NO FILTERING.
+    =====================================
     */
 
 
@@ -619,12 +784,14 @@ const links =
         'a[href*="/homedetails/"],a[href*="_zpid"]'
       )
     ]
+
     .map(
       link =>
       link.href
         .split('?')[0]
         .split('#')[0]
     )
+
     .filter(Boolean)
   )
 ];
@@ -635,7 +802,7 @@ if(
 ){
 
   alert(
-    'No Zillow property links were found. Make sure you are viewing Zillow search results and let the listings load.'
+    'No Zillow property links were found. Let the Zillow results load and try again.'
   );
 
   return;
@@ -701,9 +868,9 @@ location.assign(
 
 
     /*
-    ========================================
-    HELPERS
-    ========================================
+    =====================================
+    OPTIONAL NUMBER
+    =====================================
     */
 
 
@@ -711,12 +878,12 @@ location.assign(
       element
     ){
 
-      const text =
+      const raw =
         element.value.trim();
 
 
       if(
-        text === ""
+        raw === ""
       ){
 
         return null;
@@ -725,7 +892,7 @@ location.assign(
 
 
       const value =
-        Number(text);
+        Number(raw);
 
 
       if(
@@ -745,9 +912,16 @@ location.assign(
     }
 
 
+    /*
+    =====================================
+    SETTINGS
+    =====================================
+    */
+
+
     function getSettings(){
 
-      return{
+      return {
 
         city:
           city
@@ -785,31 +959,47 @@ location.assign(
     }
 
 
+    /*
+    =====================================
+    VALIDATION
+    =====================================
+    */
+
+
     function validate(
       settings
     ){
 
       if(
-        settings.city &&
-        !settings.state
+        !settings.city
       ){
 
         return(
-          "Enter a state with the city."
+          "Enter a city."
         );
 
       }
 
 
       if(
-        settings.state &&
+        !settings.state
+      ){
+
+        return(
+          "Enter a state."
+        );
+
+      }
+
+
+      if(
         !/^[A-Z]{2}$/.test(
           settings.state
         )
       ){
 
         return(
-          "Use a two-letter state abbreviation."
+          "Use a two-letter state abbreviation, such as KS."
         );
 
       }
@@ -849,11 +1039,13 @@ location.assign(
 
 
     /*
-    ========================================
+    =====================================
     LOCATION SLUG
 
-    Wichita + KS -> Wichita-KS
-    ========================================
+    Wichita + KS
+       ↓
+    wichita-ks
+    =====================================
     */
 
 
@@ -863,6 +1055,7 @@ location.assign(
     ){
 
       return(
+
         [
           cityName,
           stateName
@@ -888,15 +1081,18 @@ location.assign(
           /^-|-$/g,
           ""
         )
+
+        .toLowerCase()
+
       );
 
     }
 
 
     /*
-    ========================================
-    CREATE ZILLOW FILTER STATE
-    ========================================
+    =====================================
+    FILTER STATE
+    =====================================
     */
 
 
@@ -904,71 +1100,11 @@ location.assign(
       settings
     ){
 
-      const filters = {
-
-        /*
-        For sale.
-        */
-
-        isForSaleByAgent:{
-          value:true
-        },
-
-        isForSaleByOwner:{
-          value:true
-        },
-
-        isNewConstruction:{
-          value:true
-        },
-
-        isComingSoon:{
-          value:true
-        },
-
-
-        /*
-        SINGLE-FAMILY HOUSE.
-
-        Other property categories are
-        explicitly set false.
-        */
-
-        isSingleFamily:{
-          value:true
-        },
-
-        isCondo:{
-          value:false
-        },
-
-        isTownhouse:{
-          value:false
-        },
-
-        isMultiFamily:{
-          value:false
-        },
-
-        isManufactured:{
-          value:false
-        },
-
-        isLotLand:{
-          value:false
-        },
-
-        isApartment:{
-          value:false
-        }
-
-      };
+      const filters = {};
 
 
       /*
       PRICE
-
-      Each bound is optional.
       */
 
 
@@ -1004,8 +1140,6 @@ location.assign(
 
       /*
       SQUARE FOOTAGE
-
-      Each bound is optional.
       */
 
 
@@ -1045,9 +1179,21 @@ location.assign(
 
 
     /*
-    ========================================
-    BUILD URL
-    ========================================
+    =====================================
+    ZILLOW URL
+    =====================================
+
+    Major change:
+
+    OLD:
+    /homes/wichita-ks_rb/
+
+    NEW:
+    /wichita-ks/houses/
+
+    Zillow currently exposes Wichita's
+    single-family results using this route.
+    =====================================
     */
 
 
@@ -1062,15 +1208,10 @@ location.assign(
         );
 
 
-      const searchTerm =
-        [
-          settings.city,
-          settings.state
-        ]
-
-        .filter(Boolean)
-
-        .join(", ");
+      const filterState =
+        createFilterState(
+          settings
+        );
 
 
       const searchState = {
@@ -1078,43 +1219,43 @@ location.assign(
         pagination:{},
 
         usersSearchTerm:
-          searchTerm,
+          settings.city +
+          ", " +
+          settings.state,
 
         isMapVisible:true,
 
         isListVisible:true,
 
         filterState:
-          createFilterState(
-            settings
-          )
+          filterState
 
       };
 
 
+      const baseUrl =
+
+        "https://www.zillow.com/" +
+
+        slug +
+
+        "/houses/";
+
+
       /*
-      Use Zillow's location-specific
-      /homes/..._rb/ search route.
+      Cache-buster only changes the URL
+      so identical launches aren't the
+      exact same request string.
       */
 
 
-      let base =
-        "https://www.zillow.com/homes/for_sale/";
-
-
-      if(slug){
-
-        base =
-          "https://www.zillow.com/homes/" +
-          slug +
-          "_rb/";
-
-      }
+      const cacheBuster =
+        Date.now();
 
 
       return(
 
-        base +
+        baseUrl +
 
         "?searchQueryState=" +
 
@@ -1124,7 +1265,11 @@ location.assign(
             searchState
           )
 
-        )
+        ) +
+
+        "&hags=" +
+
+        cacheBuster
 
       );
 
@@ -1132,13 +1277,13 @@ location.assign(
 
 
     /*
-    ========================================
-    PREVIEW
-    ========================================
+    =====================================
+    DISPLAY HELPERS
+    =====================================
     */
 
 
-    function money(
+    function formatMoney(
       value
     ){
 
@@ -1159,7 +1304,7 @@ location.assign(
     }
 
 
-    function squareFeet(
+    function formatSqft(
       value
     ){
 
@@ -1180,6 +1325,47 @@ location.assign(
     }
 
 
+    function escapeHtml(
+      text
+    ){
+
+      return String(text)
+
+        .replace(
+          /&/g,
+          "&amp;"
+        )
+
+        .replace(
+          /</g,
+          "&lt;"
+        )
+
+        .replace(
+          />/g,
+          "&gt;"
+        )
+
+        .replace(
+          /"/g,
+          "&quot;"
+        )
+
+        .replace(
+          /'/g,
+          "&#039;"
+        );
+
+    }
+
+
+    /*
+    =====================================
+    PREVIEW
+    =====================================
+    */
+
+
     function updatePreview(){
 
       const settings =
@@ -1187,6 +1373,7 @@ location.assign(
 
 
       const place =
+
         [
           settings.city,
           settings.state
@@ -1195,57 +1382,73 @@ location.assign(
         .filter(Boolean)
 
         .join(", ") ||
-        "Any location";
+
+        "Enter a location";
 
 
       preview.innerHTML =
 
         "<strong>Location:</strong> " +
-        place +
+
+        escapeHtml(place) +
 
         "<br>" +
 
-        "<strong>Price:</strong> " +
-        money(
+
+        "<strong>Minimum price:</strong> " +
+
+        formatMoney(
           settings.minPrice
         ) +
 
-        " → " +
+        "<br>" +
 
-        money(
+
+        "<strong>Maximum price:</strong> " +
+
+        formatMoney(
           settings.maxPrice
         ) +
 
         "<br>" +
 
-        "<strong>Square footage:</strong> " +
-        squareFeet(
+
+        "<strong>Minimum square feet:</strong> " +
+
+        formatSqft(
           settings.minSqft
         ) +
 
-        " → " +
+        "<br>" +
 
-        squareFeet(
+
+        "<strong>Maximum square feet:</strong> " +
+
+        formatSqft(
           settings.maxSqft
         ) +
 
         "<br>" +
 
-        "<strong>Property:</strong> Houses only";
+
+        "<strong>Property type:</strong> " +
+
+        "Single-family houses";
 
     }
 
 
     /*
-    ========================================
-    OPEN ZILLOW
-    ========================================
+    =====================================
+    OPEN SEARCH
+    =====================================
     */
 
 
     function openSearch(){
 
       message.textContent = "";
+
       message.className = "";
 
 
@@ -1296,9 +1499,9 @@ location.assign(
 
 
     /*
-    ========================================
-    COPY BOOKMARK
-    ========================================
+    =====================================
+    COPY RANDOMIZER
+    =====================================
     */
 
 
@@ -1335,9 +1538,9 @@ location.assign(
 
 
     /*
-    ========================================
-    SAVE / RESTORE
-    ========================================
+    =====================================
+    RESTORE SETTINGS
+    =====================================
     */
 
 
@@ -1405,9 +1608,9 @@ location.assign(
 
 
     /*
-    ========================================
+    =====================================
     EVENTS
-    ========================================
+    =====================================
     */
 
 
@@ -1433,7 +1636,9 @@ location.assign(
       minSqft,
       maxSqft
     ]
+
     .forEach(
+
       element => {
 
         element.addEventListener(
@@ -1442,6 +1647,7 @@ location.assign(
         );
 
       }
+
     );
 
 
@@ -1449,5 +1655,7 @@ location.assign(
 
   </script>
 
+
 </body>
+
 </html>
